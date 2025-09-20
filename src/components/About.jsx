@@ -21,8 +21,8 @@ const About = () => {
     },
     {
       step: "AI testing & AI driven testing",
-      icon: CpuChipIcon
-      description: "Leverage AI testing and AI-driven automation to validate models and optimized ,faster,more reliable releases."
+      icon: CpuChipIcon,
+      description: "Leverage AI testing and AI-driven automation to validate models and optimized ,faster,more reliable releases"
     }
   ];
 
