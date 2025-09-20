@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChartBarIcon, CodeBracketIcon, CogIcon, RocketLaunchIcon } from '@heroicons/react/24/outline';
+import { ChartBarIcon, CodeBracketIcon, CogIcon, RocketLaunchIcon ,CpuChipIcon } from '@heroicons/react/24/outline';
 import { profileData } from '../data/profile';
 
 const About = () => {
@@ -20,9 +20,9 @@ const About = () => {
       description: "Conduct performance testing and monitor application metrics"
     },
     {
-      step: "CI/CD Integration",
-      icon: RocketLaunchIcon,
-      description: "Integrate testing into deployment pipelines for faster releases"
+      step: "AI testing & AI driven testing",
+      icon: CpuChipIcon
+      description: "Leverage AI testing and AI-driven automation to validate models and optimized ,faster,more reliable releases."
     }
   ];
 
