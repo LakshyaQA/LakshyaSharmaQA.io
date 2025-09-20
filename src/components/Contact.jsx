@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { 
   EnvelopeIcon, 
   PhoneIcon, 
@@ -30,45 +29,12 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      // Create form data for Netlify
-      const netlifyFormData = new FormData();
-      netlifyFormData.append('form-name', 'contact');
-      Object.keys(formData).forEach(key => {
-        netlifyFormData.append(key, formData[key]);
-      });
-
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(netlifyFormData)
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-    }
-
-    setIsSubmitting(false);
-  };
-
   const copyEmailToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(profileData.email);
       setCopySuccess(true);
       setTimeout(() => setCopySuccess(false), 2000);
     } catch (err) {
-      // Fallback for older browsers
       const textArea = document.createElement('textarea');
       textArea.value = profileData.email;
       document.body.appendChild(textArea);
@@ -197,8 +163,15 @@ const Contact = () => {
                 Send me a message
               </h3>
 
-              <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-6">
-                {/* Hidden fields for Netlify */}
+              {/* ✅ Simplified Netlify Form */}
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                netlify-honeypot="bot-field" 
+                className="space-y-6"
+              >
+                {/* Hidden fields */}
                 <input type="hidden" name="form-name" value="contact" />
                 <div className="hidden">
                   <label>
@@ -217,10 +190,8 @@ const Contact = () => {
                       type="text"
                       id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       placeholder="Your full name"
                     />
                   </div>
@@ -233,10 +204,8 @@ const Contact = () => {
                       type="email"
                       id="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -250,10 +219,8 @@ const Contact = () => {
                     type="text"
                     id="subject"
                     name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     placeholder="What's this about?"
                   />
                 </div>
@@ -265,48 +232,22 @@ const Contact = () => {
                   <textarea
                     id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 resize-vertical"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-vertical"
                     placeholder="Tell me about the opportunity or ask your question..."
                   />
                 </div>
 
-                {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full btn-primary flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full btn-primary flex items-center justify-center space-x-2"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                      <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
-                      <PaperAirplaneIcon className="h-5 w-5" />
-                      <span>Send Message</span>
-                    </>
-                  )}
+                  <PaperAirplaneIcon className="h-5 w-5" />
+                  <span>Send Message</span>
                 </button>
 
-                {/* Status Messages */}
-                {submitStatus === 'success' && (
-                  <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
-                    <CheckCircleIcon className="h-5 w-5" />
-                    <span>Message sent successfully! I'll get back to you soon.</span>
-                  </div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <div className="flex items-center space-x-2 text-red-600 dark:text-red-400">
-                    <ExclamationCircleIcon className="h-5 w-5" />
-                    <span>Failed to send message. Please try emailing me directly.</span>
-                  </div>
-                )}
+                {/* Netlify will redirect to success/failure page automatically */}
               </form>
             </div>
           </div>
