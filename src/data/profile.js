@@ -17,15 +17,22 @@ export const profileData = {
   // Hero Section
   hero: {
     headline: "QA Automation Engineer",
-    subheadline: "Specializing in Selenium · Pytest · JMeter · CI/CD",
-    description: "Improved regression efficiency by 40% and maintained 95%+ release stability across Web, Mobile, API, and AI applications.",
-    typingText: ["Web Applications", "Mobile Apps", "API Systems", "AI Applications", "E2E Testing", "Performance Testing"]
+    subheadline: "Selenium · Pytest/TestNG · JMeter · API Testing · Appium · CI/CD · AI Testing",
+    description: "QA Automation Engineer with 2+ years of experience improving regression efficiency by 40% and ensuring 95%+ release stability across Web, Mobile, API, and AI applications.",
+    typingText: [
+      "Web Applications",
+      "Mobile Apps",
+      "API Systems",
+      "AI Applications",
+      "E2E Automation",
+      "Performance Testing"
+    ]
   },
 
   // About Section
   about: {
-    summary: "I'm Lakshya Sharma, a QA Automation Engineer based in Pune with 2+ years of experience building TDD automation frameworks and executing API & performance testing. I streamline release pipelines, integrate tests into CI/CD, and validate AI-driven systems to keep releases stable and fast.",
-    personalIntro: "Passionate about building robust software quality assurance processes, I believe in the power of automated testing to deliver reliable, high-performance applications that users can trust."
+    summary: "I'm Lakshya Sharma, a QA Automation Engineer based in Pune with 2+ years of experience building TDD-based automation frameworks, executing API & performance testing, and validating AI-driven systems. I specialize in streamlining release pipelines and integrating automation into CI/CD to accelerate stable releases.",
+    personalIntro: "Passionate about building robust QA processes, I leverage automation and shift-left testing to reduce bugs early, enhance efficiency, and deliver reliable, high-performance software."
   },
 
   // Skills
@@ -35,27 +42,27 @@ export const profileData = {
       proficiency: 90
     },
     "API Testing": {
-      technologies: ["REST Assured", "Postman", "Insomnia", "Newman"],
+      technologies: ["REST Assured", "Postman", "Swagger", "Newman"],
       proficiency: 85
     },
     "Performance Testing": {
-      technologies: ["JMeter", "LoadRunner", "K6", "Artillery"],
+      technologies: ["JMeter", "Locust"],
       proficiency: 80
     },
-    "CI/CD": {
+    "CI/CD & DevOps": {
       technologies: ["Jenkins", "GitLab CI", "GitHub Actions", "Docker"],
       proficiency: 75
     },
     "Programming": {
-      technologies: ["Python", "Java", "JavaScript", "Shell Scripting"],
+      technologies: ["Python", "Java"],
       proficiency: 85
     },
     "Databases": {
-      technologies: ["SQL", "MongoDB", "PostgreSQL", "Redis"],
+      technologies: ["MySQL", "PostgreSQL"],
       proficiency: 70
     },
     "Cloud & Tools": {
-      technologies: ["Azure", "AWS", "Git", "Jira", "TestRail"],
+      technologies: ["Azure", "Zephyr", "Git", "Jira", "TestRail"],
       proficiency: 75
     }
   },
@@ -69,12 +76,12 @@ export const profileData = {
       location: "Pune, India",
       logo: "/api/placeholder/60/60",
       achievements: [
-        "Improved regression testing efficiency by 40% through comprehensive test automation framework implementation",
-        "Reduced application crash rates by 30% through rigorous testing protocols and early bug detection",
-        "Successfully integrated automated testing into CI/CD pipelines, enabling faster deployment cycles",
-        "Implemented performance testing using JMeter, optimizing application response times by 25%",
-        "Led quality assurance for AI-driven applications including AEYE (AI Proctoring system)",
-        "Managed end-to-end testing for YAKSHA assessment platform and Techademy Campus portal"
+        "Boosted regression efficiency by 40% through hybrid test automation framework (Selenium, Pytest, TestNG)",
+        "Reduced crash rates by 30% via rigorous testing and shift-left bug detection",
+        "Integrated 3+ automation suites into CI/CD pipelines, cutting manual execution by 50%",
+        "Executed performance testing with JMeter, improving response times by 20%",
+        "Led quality assurance for AI-driven projects including AEYE (AI Proctoring System)",
+        "Managed end-to-end testing for Yaksha Assessment Platform and Techademy Campus Portal"
       ],
       projects: ["AEYE - AI Proctoring System", "YAKSHA - Assessment Platform", "Techademy Campus Portal"]
     }
@@ -86,69 +93,70 @@ export const profileData = {
       id: 1,
       name: "Car Dekho Automation Project",
       category: "E2E",
-      description: "Comprehensive end-to-end automation testing framework for CarDekho platform using Selenium and Python.",
-      problem: "Manual testing of car listing, search, and filter functionalities was time-consuming and prone to human error.",
-      solution: "Developed a robust automation framework with data-driven testing approach, implementing Page Object Model for maintainable test scripts.",
-      techStack: ["Selenium", "Python", "Pytest", "Page Object Model", "Data-Driven Testing"],
-      keyMetrics: "Reduced testing time by 60% and improved test coverage to 85%",
+      description: "End-to-end automation testing framework for CarDekho platform using Selenium and Python.",
+      problem: "Manual testing of car listing, search, and filter functionalities was time-consuming and error-prone.",
+      solution: "Built a maintainable Page Object Model framework with data-driven testing approach.",
+      techStack: ["Selenium", "Python", "Pytest", "POM", "Data-Driven Testing"],
+      keyMetrics: "Reduced testing time by 60% and improved coverage to 85%",
       githubUrl: "https://github.com/LakshyaQA/ExlatProjectCarDekho",
       demoUrl: null,
       image: "/api/placeholder/400/250",
       featured: true
     },
     {
-      id: 2,
-      name: "I2V QA Testing Suite",
-      category: "API",
-      description: "Advanced API testing suite for Image-to-Video conversion platform with comprehensive validation protocols.",
-      problem: "Complex AI-driven image processing required thorough API validation and performance testing under various load conditions.",
-      solution: "Built comprehensive API testing framework with automated validation of AI model responses, performance benchmarking, and error handling protocols.",
-      techStack: ["REST Assured", "Java", "TestNG", "JMeter", "API Testing"],
-      keyMetrics: "Achieved 95% API coverage and identified 23 critical bugs before production",
-      githubUrl: "https://github.com/LakshyaQA/i2v_qa",
-      demoUrl: null,
-      image: "/api/placeholder/400/250",
-      featured: true
-    }
+  id: 2,
+  name: "I2V QA Testing Suite (IQTS)",
+  category: "API",
+  description: "Developed a web automation testing framework for a CCTV control portal, automating positive/negative flows and integrating Jenkins for CI/CD with detailed reporting and screenshots.",
+  problem: "The CCTV control portal required comprehensive validation of admin workflows such as camera control, user onboarding, and system management. Ensuring both normal and negative API flows with edge cases was a major challenge.",
+  solution: "Built a robust API testing framework to validate all endpoints, automating positive and negative flows. Integrated Jenkins pipelines to run automated tests on every commit, generating detailed reports with screenshots for better issue tracking.",
+  techStack: ["Python", "Pytest", "JMeter", "Allure/Py-HTML Reports", "API Testing", "Jenkins"],
+  keyMetrics: "Achieved 95% API coverage and identified 23 critical bugs before production",
+  githubUrl: "https://github.com/LakshyaQA/i2v_qa",
+  demoUrl: null,
+  image: "/api/placeholder/400/250",
+  featured: true
+}
+
   ],
 
   // Professional Projects (Experience)
   professionalProjects: [
     {
       name: "AEYE - AI Proctoring System",
-      description: "AI-powered proctoring solution for online examinations with real-time monitoring capabilities.",
-      role: "Led comprehensive testing including AI model validation, WebSocket testing, and load testing",
-      techStack: ["Python", "Selenium", "JMeter", "Kafka", "Azure", "AI Testing"],
-      impact: "Improved system stability by 30% and enhanced throughput by 20%"
+      description: "AI-powered proctoring solution for online examinations with real-time monitoring.",
+      role: "Led automation & performance testing including AI model validation, WebSocket, and load testing",
+      techStack: ["Python", "Selenium", "JMeter", "Kafka", "Azure"],
+      impact: "Improved system stability by 30% and throughput by 20%"
     },
     {
       name: "YAKSHA - Assessment Platform",
-      description: "Comprehensive online assessment platform for technical and aptitude evaluations.",
-      role: "Implemented end-to-end automation framework and performance testing protocols",
+      description: "Online assessment platform for technical and aptitude evaluations.",
+      role: "Implemented automation frameworks, database validation, and CI/CD integration",
       techStack: ["Selenium", "Pytest", "REST Assured", "PostgreSQL", "Jenkins"],
-      impact: "Achieved 95%+ platform reliability and reduced assessment loading time by 40%"
+      impact: "Achieved 95%+ platform reliability and reduced load times by 40%"
     },
     {
       name: "Techademy Campus Portal",
       description: "Student management and learning platform for educational institutions.",
-      role: "Designed and executed comprehensive test suites for user management and content delivery",
-      techStack: ["Selenium", "TestNG", "MySQL", "API Testing", "Mobile Testing"],
-      impact: "Maintained 99.5% uptime and improved user experience scores by 35%"
+      role: "Designed regression suites and automated API/sanity checks",
+      techStack: ["Selenium", "TestNG", "MySQL", "API Testing"],
+      impact: "Maintained 95%+ stability post-updates and improved user experience"
     }
   ],
 
-  // Testimonials (placeholder)
+  // Testimonials
   testimonials: [
     {
       name: "Senior Manager",
       role: "Technical Lead at Techademy",
-      content: "Lakshya's automation frameworks significantly improved our release quality and reduced testing cycles. His attention to detail and proactive approach to quality assurance is exceptional.",
+      content: "Lakshya's automation frameworks significantly improved our release quality and reduced testing cycles. His attention to detail and proactive QA approach is exceptional.",
       avatar: "/api/placeholder/60/60"
     },
     {
       name: "Project Manager",
       role: "AEYE Project Team",
-      content: "His expertise in AI application testing and performance optimization was crucial to our project success. Lakshya consistently delivered high-quality testing solutions under tight deadlines.",
+      content: "His expertise in AI testing and performance optimization was crucial to our success. Lakshya consistently delivered high-quality testing solutions under tight deadlines.",
       avatar: "/api/placeholder/60/60"
     }
   ],
@@ -158,9 +166,9 @@ export const profileData = {
     downloadUrl: "/resume.pdf",
     highlights: [
       "95%+ Release Stability",
-      "40% Efficiency Improvement",
+      "40% Efficiency Gains",
       "2+ Years Experience",
-      "AI Testing Expert",
+      "AI Testing Expertise",
       "CI/CD Integration",
       "Performance Optimization"
     ]
@@ -169,8 +177,8 @@ export const profileData = {
   // SEO Data
   seo: {
     title: "Lakshya Sharma | QA Automation Engineer Portfolio",
-    description: "QA Automation Engineer with 2+ years experience in Selenium, Pytest, JMeter, and CI/CD. Specializing in Web, Mobile, API, and AI application testing with proven track record of improving release stability by 95%+.",
-    keywords: "QA Automation Engineer, Selenium, Pytest, JMeter, API Testing, Performance Testing, CI/CD, Test Automation, Quality Assurance, Lakshya Sharma",
+    description: "QA Automation Engineer with 2+ years experience in Selenium, Pytest, JMeter, and CI/CD. Specializing in Web, Mobile, API, and AI testing with proven track record of 95%+ release stability.",
+    keywords: "QA Automation Engineer, Selenium, Pytest, JMeter, API Testing, Performance Testing, CI/CD, Automation, Quality Assurance, Lakshya Sharma",
     ogImage: "/og-image.jpg"
   }
 };
