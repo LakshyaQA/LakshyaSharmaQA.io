@@ -60,11 +60,8 @@ const Header = ({ darkMode, toggleDarkMode }) => {
               onClick={() => scrollToSection('#hero')}
               className="text-xl font-bold text-gradient hover:scale-105 transition-transform duration-200"
             >
-              {profileData.name.split(' ').map((name, index) => (
-                <span key={index}>
-                  {index === 0 ? name : name.charAt(0) + '.'}
-                  {index === 0 && ' '}
-                </span>
+              {profileData.name.split(' ').map((word, index) => (
+                <span key={index} className="mr-1">{word}</span>
               ))}
             </button>
           </div>
