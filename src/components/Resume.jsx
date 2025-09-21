@@ -9,6 +9,11 @@ const Resume = () => {
     setShowResumePreview(!showResumePreview);
   };
 
+  // Get current month and year for "Resume last updated"
+  const currentDate = new Date();
+  const options = { month: "long", year: "numeric" };
+  const formattedDate = currentDate.toLocaleDateString("en-US", options);
+
   return (
     <section id="resume" className="section-padding bg-gray-50 dark:bg-gray-800/50">
       <div className="container-custom">
@@ -176,7 +181,7 @@ const Resume = () => {
                   ))}
                 </div>
 
-                {/* Education & Certifications Placeholder */}
+                {/* Education & Certifications */}
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 border-l-4 border-primary-600 pl-3">
@@ -206,7 +211,7 @@ const Resume = () => {
           {/* Additional Information */}
           <div className="mt-8 text-center">
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Resume last updated: December 2024 • Available for immediate employment
+              Resume last updated: {formattedDate} • Available for immediate employment
             </p>
           </div>
         </div>
