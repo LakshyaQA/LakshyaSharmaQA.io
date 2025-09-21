@@ -17,7 +17,7 @@ export const profileData = {
   // Hero Section
   hero: {
     headline: "QA Automation Engineer",
-    subheadline: "Selenium · Pytest/TestNG · JMeter · API Testing · Appium · CI/CD · AI Testing",
+    subheadline: "Selenium · Pytest/TestNG · Python/Java · JMeter · API Testing · Appium · CI/CD · AI Testing",
     description: "QA Automation Engineer with 2+ years of experience improving regression efficiency by 40% and ensuring 95%+ release stability across Web, Mobile, API, and AI applications.",
     typingText: [
       "Web Applications",
@@ -42,7 +42,7 @@ export const profileData = {
       proficiency: 90
     },
     "API Testing": {
-      technologies: ["REST Assured", "Postman", "Swagger", "Newman"],
+      technologies: ["REST Assured", "Postman", "Swagger", "Requests"],
       proficiency: 85
     },
     "Performance Testing": {
@@ -50,7 +50,7 @@ export const profileData = {
       proficiency: 80
     },
     "CI/CD & DevOps": {
-      technologies: ["Jenkins", "GitLab CI", "GitHub Actions", "Docker"],
+      technologies: ["Jenkins", "GitLab CI", "Kubernetes", "Kafka",  "Docker"],
       proficiency: 75
     },
     "Programming": {
@@ -87,22 +87,22 @@ export const profileData = {
     }
   ],
 
-  // Personal Projects
-  projects: [
-    {
-      id: 1,
-      name: "Car Dekho Automation Project",
-      category: "E2E",
-      description: "End-to-end automation testing framework for CarDekho platform using Selenium and Python.",
-      problem: "Manual testing of car listing, search, and filter functionalities was time-consuming and error-prone.",
-      solution: "Built a maintainable Page Object Model framework with data-driven testing approach.",
-      techStack: ["Selenium", "Python", "Pytest", "POM", "Data-Driven Testing"],
-      keyMetrics: "Reduced testing time by 60% and improved coverage to 85%",
-      githubUrl: "https://github.com/LakshyaQA/ExlatProjectCarDekho",
-      demoUrl: null,
-      image: "/api/placeholder/400/250",
-      featured: true
-    },
+    // Personal Projects
+projects: [
+  {
+    id: 1,
+    name: "CarDekho Functional Automation",
+    category: "E2E",
+    description: "Automated functional user journeys on the CarDekho platform using Selenium, Java, Maven, and TestNG.",
+    problem: "Validating core flows like car selection, dropdown filters, and navigation manually was repetitive and error-prone.",
+    solution: "Developed a modular automation suite covering end-to-end scenarios such as selecting cars (e.g., Thar) via dropdowns, navigating detail pages, and asserting expected results.",
+    techStack: ["Selenium", "Java", "Maven", "TestNG", "POM"],
+    keyMetrics: "Improved test accuracy and reduced manual validation effort by 65%.",
+    githubUrl: "https://github.com/LakshyaQA/ExlatProjectCarDekho",
+    demoUrl: null,
+    image: "/api/placeholder/400/250",
+    featured: true
+  },
     {
   id: 2,
   name: "I2V QA Testing Suite (IQTS)",
@@ -163,7 +163,7 @@ export const profileData = {
 
   // Resume
   resume: {
-    downloadUrl: "/resume.pdf",
+    downloadUrl: "/lakshyaSharmaQaAutomationEngineerResume.pdf",
     highlights: [
       "95%+ Release Stability",
       "40% Efficiency Gains",
