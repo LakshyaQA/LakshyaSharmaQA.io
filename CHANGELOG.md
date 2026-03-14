@@ -15,6 +15,13 @@ Maintained date-wise in descending order (latest first).
 ### Added
 - **`@tailwindcss/postcss`** — Installed as required PostCSS plugin for Tailwind v4
 
+### Fixed
+- **`vite.config.js`** — Fixed missing closing `})` syntax error that was causing Vercel build to fail with `Expected "}" but found end of file`; also removed stale Emergent agent `allowedHosts` from `server` and `preview` blocks
+
+### Changed
+- **`vite.config.js`** — Added `build.rollupOptions.output.manualChunks` to split large bundle into smaller cacheable chunks — `react-vendor`, `framer-motion`, `recharts` now loaded separately; main `index.js` reduced from **511 KB → 255 KB**
+- **`README.md`** — Added `Deploy via Vercel CLI` section with all CLI commands: `vercel login`, `vercel`, `vercel --prod`, `vercel ls`, `vercel inspect`
+
 ### Changed
 - **`package.json`** — Updated Node engine from `>=22.0.0` to `24.x`, updated Volta node pin to `24.13.1`, added `@tailwindcss/postcss` to dependencies
 - **`package-lock.json`** — Updated to reflect new `@tailwindcss/postcss` package and dependency upgrades
