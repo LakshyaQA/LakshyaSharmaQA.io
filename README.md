@@ -176,6 +176,50 @@ You can monitor deployment status in your **Vercel Dashboard** under the project
 
 ---
 
+### Deploy via Vercel CLI
+
+You can also trigger deployments directly from your terminal without going to the dashboard.
+
+**Step 1 — Install Vercel CLI**
+
+```bash
+npm install -g vercel
+```
+
+**Step 2 — Login to Vercel**
+
+```bash
+vercel login
+```
+
+**Step 3 — Deploy to preview (UAT / staging)**
+
+```bash
+vercel
+```
+
+**Step 4 — Deploy to production**
+
+```bash
+vercel --prod
+```
+
+**Check deployment status & list all deployments**
+
+```bash
+vercel ls
+```
+
+**Inspect a specific deployment**
+
+```bash
+vercel inspect <deployment-url>
+```
+
+> **Tip:** For UAT branch, just `git push origin uat` — Vercel auto-deploys on every push if the branch is connected in your Vercel project settings.
+
+---
+
 ### Add a Custom Domain (Optional)
 
 1. In your Vercel project, go to **Settings → Domains**
