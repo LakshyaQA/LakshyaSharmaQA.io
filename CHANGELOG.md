@@ -10,11 +10,10 @@ Maintained date-wise in descending order (latest first).
 
 ---
 
-## 2026-03-14 — Staged / Pending Push
 
 ### Added
 - **CHANGELOG.md** — Created this changelog file to track all project changes going forward
-- **`.prettierrc`** — Added Prettier configuration (semi, singleQuote, tabWidth, trailingComma, printWidth, etc.)
+- **`.prettierrc`** — Added Prettier configuration (semi, singleQuhnagesote, tabWidth, trailingComma, printWidth, etc.)
 - **`.prettierignore`** — Added Prettier ignore rules for `node_modules`, `dist`, `build`, `*.min.js`, `package-lock.json`
 - **`public/lakshyaSharmaQaAutomationEngineerResume(1).pdf`** — Uploaded updated resume PDF copy
 
