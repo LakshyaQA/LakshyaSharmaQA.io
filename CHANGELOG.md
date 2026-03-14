@@ -10,6 +10,41 @@ Maintained date-wise in descending order (latest first).
 
 ---
 
+## 2026-03-14
+
+### Added
+- **`@tailwindcss/postcss`** — Installed as required PostCSS plugin for Tailwind v4
+
+### Changed
+- **`package.json`** — Updated Node engine from `>=22.0.0` to `24.x`, updated Volta node pin to `24.13.1`, added `@tailwindcss/postcss` to dependencies
+- **`package-lock.json`** — Updated to reflect new `@tailwindcss/postcss` package and dependency upgrades
+- **`postcss.config.js`** — Replaced `tailwindcss: {}` with `'@tailwindcss/postcss': {}` — required breaking change in Tailwind v4
+- **`tailwind.config.js`** — Removed dead theme config (colors, fonts, animations, keyframes) — all moved to `src/index.css @theme` block as per Tailwind v4; kept only `content` and `darkMode`
+- **`src/index.css`** — Migrated from `@tailwind base/components/utilities` to `@import "tailwindcss"`, added full `@theme` block with all custom colors (primary/secondary/accent), fonts, and animations
+- **`src/App.jsx`** — Fixed dark mode applying inconsistently — removed nested double div, now single div with `dark:` classes driven by `<html>` class toggle
+- **`src/components/Hero.jsx`** — Moved `qaQuotes` and `typingTexts` outside component to fix `react-hooks/exhaustive-deps` ESLint warning; removed duplicate `Lakshya Sharma` h1 (already shown in Header); fixed text-over-image overlap by replacing absolute-positioned image with flexbox two-column layout (`flex-1` text + `flex-shrink-0` image); image now visible on mobile (stacked), side-by-side on desktop
+- **`src/components/Experience.jsx`** — Replaced solid green gradient timeline line with subtle dashed gray line using `repeating-linear-gradient`; replaced filled dot with ring-style dot (white center, teal border, inner dot)
+
+### Fixed
+- **Dark mode** — Was only applying to some components due to nested `dark` class on wrapper div; fixed by toggling `dark` class only on `<html>` element and using a single wrapper div
+- **ESLint warning** — `react-hooks/exhaustive-deps` on `useEffect` in `Hero.jsx` resolved by moving `qaQuotes` array outside component
+- **Hero text overlap** — Description text was overlapping profile image on large screens due to `absolute` positioning; fixed with flexbox layout
+- **Timeline UI** — Replaced visually distracting solid green left border line with cleaner dashed style
+
+---
+
+## 2026-03-14
+
+### Fixed
+- **`package.json`** — Removed UTF-8 BOM character (`EF BB BF`) from start of file that was causing Vercel deployment to fail with `Unexpected token` JSON parse error
+- **`.prettierrc`** — Removed UTF-8 BOM character (same issue)
+- **`.prettierignore`** — Removed UTF-8 BOM character (same issue)
+
+> **Root cause:** Windows text editors sometimes save files with a UTF-8 BOM prefix which breaks JSON parsing on Linux-based systems like Vercel.
+
+---
+
+## 2026-03-14
 
 ### Added
 - **CHANGELOG.md** — Created this changelog file to track all project changes going forward

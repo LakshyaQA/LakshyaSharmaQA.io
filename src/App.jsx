@@ -34,9 +34,8 @@ function App() {
     }
   };
 
-  return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''}`}>
-      <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    return (
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <main>
           <Hero />
@@ -47,8 +46,7 @@ function App() {
           <Resume />
           <Contact />
         </main>
-        <Footer />
-      </div>
+                <Footer />
     </div>
   );
 }

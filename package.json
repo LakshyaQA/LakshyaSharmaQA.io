@@ -4,11 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "engines": {
-    "node": ">=22.0.0",
-    "npm": ">=10.0.0"
+    "node": "24.x",
+    "npm": ">=10"
   },
   "volta": {
-    "node": "22.22.1",
+    "node": "24.13.1",
     "npm": "10.9.2"
   },
   "scripts": {
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@tailwindcss/postcss": "^4.2.1",
     "framer-motion": "^12.36.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",

@@ -27,16 +27,24 @@ const Experience = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+                <div className="max-w-4xl mx-auto">
           {/* Experience Timeline */}
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-600 to-accent-500"></div>
+            <div
+              className="absolute left-8 top-0 bottom-0"
+              style={{
+                width: '2px',
+                backgroundImage: 'repeating-linear-gradient(to bottom, #d1d5db 0px, #d1d5db 8px, transparent 8px, transparent 16px)'
+              }}
+            ></div>
 
             {profileData.experience.map((exp, index) => (
               <div key={index} className="relative mb-12 ml-20">
-                {/* Timeline Dot */}
-                <div className="absolute -left-12 top-6 w-4 h-4 bg-primary-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"></div>
+                {/* Timeline Dot — ring style */}
+                <div className="absolute -left-12 top-6 w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 border-primary-500 dark:border-primary-400 shadow-md flex items-center justify-center">
+                  <div className="w-2 h-2 rounded-full bg-primary-500 dark:bg-primary-400"></div>
+                </div>
 
                 {/* Experience Card */}
                 <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover">
