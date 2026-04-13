@@ -12,8 +12,8 @@
     "npm": "10.9.2"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node scripts/sync-resume.js && vite",
+    "build": "node scripts/sync-resume.js && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
