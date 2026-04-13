@@ -1,48 +1,49 @@
-import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
-import { 
-  EnvelopeIcon, 
-  PhoneIcon, 
-  MapPinIcon, 
+import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
+import {
+  EnvelopeIcon,
+  PhoneIcon,
+  MapPinIcon,
   PaperAirplaneIcon,
-  CheckCircleIcon,
-  ExclamationCircleIcon,
-  ClipboardDocumentIcon
-} from '@heroicons/react/24/outline';
-import { profileData } from '../data/profile';
-import { useToast } from '../context/ToastContext';
+  ClipboardDocumentIcon,
+} from '@heroicons/react/24/outline'
+import { profileData } from '../data/profile'
+import { useToast } from '../context/ToastContext'
 
 const Contact = () => {
-  const { addToast } = useToast();
+  const { addToast } = useToast()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+    message: '',
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
+  const handleInputChange = e => {
+    const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
-      [name]: value
-    }));
-  };
+      [name]: value,
+    }))
+  }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const handleSubmit = async e => {
+    e.preventDefault()
+    setIsSubmitting(true)
 
-    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
     if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      console.error("EmailJS configuration is missing.");
-      addToast("Oh no! Looks like I haven't tested my own website configuration... Lakshya is fixing it! 🔧", 'error');
-      setIsSubmitting(false);
-      return;
+      console.error('EmailJS configuration is missing.')
+      addToast(
+        "Oh no! Looks like I haven't tested my own website configuration... Lakshya is fixing it! 🔧",
+        'error'
+      )
+      setIsSubmitting(false)
+      return
     }
 
     try {
@@ -56,32 +57,38 @@ const Contact = () => {
           message: formData.message,
         },
         PUBLIC_KEY
-      );
+      )
 
-      addToast("Message sent! My API didn't crash this time. Lakshya will reply soon! 📧", 'success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      addToast(
+        "Message sent! My API didn't crash this time. Lakshya will reply soon! 📧",
+        'success'
+      )
+      setFormData({ name: '', email: '', subject: '', message: '' })
     } catch (error) {
-      console.error("EmailJS error:", error);
-      addToast("Failed to send message. You found a bug—I promise I'm better at testing your software! 😅", 'error');
+      console.error('EmailJS error:', error)
+      addToast(
+        "Failed to send message. You found a bug—I promise I'm better at testing your software! 😅",
+        'error'
+      )
     }
 
-    setIsSubmitting(false);
-  };
+    setIsSubmitting(false)
+  }
 
   const copyEmailToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText(profileData.email);
-      addToast("Email captured! It's safe in your clipboard... for now. 📋", 'success');
+      await navigator.clipboard.writeText(profileData.email)
+      addToast("Email captured! It's safe in your clipboard... for now. 📋", 'success')
     } catch {
-      const textArea = document.createElement('textarea');
-      textArea.value = profileData.email;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      addToast("Email captured! It's safe in your clipboard... for now. 📋", 'success');
+      const textArea = document.createElement('textarea')
+      textArea.value = profileData.email
+      document.body.appendChild(textArea)
+      textArea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textArea)
+      addToast("Email captured! It's safe in your clipboard... for now. 📋", 'success')
     }
-  };
+  }
 
   return (
     <section id="contact" className="section-padding bg-white dark:bg-gray-900">
@@ -92,23 +99,22 @@ const Contact = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-600 to-secondary-600 mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Ready to discuss quality assurance opportunities or have questions about my experience? 
+            Ready to discuss quality assurance opportunities or have questions about my experience?
             Let's connect and explore how I can contribute to your team's success.
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            
             {/* Contact Information */}
             <div className="space-y-8">
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                 Let's Start a Conversation
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                I'm actively seeking new opportunities in quality assurance and automation testing. 
-                Whether you're a recruiter, hiring manager, or fellow QA professional, 
-                I'd love to hear from you.
+                I'm actively seeking new opportunities in quality assurance and automation testing.
+                Whether you're a recruiter, hiring manager, or fellow QA professional, I'd love to
+                hear from you.
               </p>
 
               {/* Email */}
@@ -176,7 +182,10 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -192,7 +201,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -209,7 +221,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Subject *
                   </label>
                   <input
@@ -225,7 +240,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Message *
                   </label>
                   <textarea
@@ -263,7 +281,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

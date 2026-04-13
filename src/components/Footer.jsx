@@ -1,16 +1,16 @@
-import React from 'react';
-import { HeartIcon } from '@heroicons/react/24/solid';
-import { profileData } from '../data/profile';
+import React from 'react'
+import { HeartIcon } from '@heroicons/react/24/solid'
+import { profileData } from '../data/profile'
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
+  const scrollToSection = sectionId => {
+    const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth' })
     }
-  };
+  }
 
   const footerLinks = [
     { name: 'About', id: 'about' },
@@ -18,8 +18,8 @@ const Footer = () => {
     { name: 'Experience', id: 'experience' },
     { name: 'Projects', id: 'projects' },
     { name: 'Resume', id: 'resume' },
-    { name: 'Contact', id: 'contact' }
-  ];
+    { name: 'Contact', id: 'contact' },
+  ]
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -29,12 +29,10 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand & Description */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-bold text-gradient mb-4">
-                {profileData.name}
-              </h3>
+              <h3 className="text-2xl font-bold text-gradient mb-4">{profileData.name}</h3>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                QA Automation Engineer specializing in building robust test frameworks 
-                and ensuring software quality across web, mobile, API, and AI applications.
+                QA Automation Engineer specializing in building robust test frameworks and ensuring
+                software quality across web, mobile, API, and AI applications.
               </p>
               <div className="flex space-x-4">
                 <a
@@ -69,7 +67,7 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                {footerLinks.map((link) => (
+                {footerLinks.map(link => (
                   <li key={link.id}>
                     <button
                       onClick={() => scrollToSection(link.id)}
@@ -87,7 +85,7 @@ const Footer = () => {
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <div className="space-y-2 text-gray-300">
                 <p>
-                  <a 
+                  <a
                     href={`mailto:${profileData.email}`}
                     className="hover:text-white transition-colors duration-200"
                   >
@@ -95,7 +93,7 @@ const Footer = () => {
                   </a>
                 </p>
                 <p>
-                  <a 
+                  <a
                     href={`tel:${profileData.phone}`}
                     className="hover:text-white transition-colors duration-200"
                   >
@@ -103,9 +101,7 @@ const Footer = () => {
                   </a>
                 </p>
                 <p>{profileData.location}</p>
-                <p className="text-sm text-gray-400 mt-2">
-                  Available for remote opportunities
-                </p>
+                <p className="text-sm text-gray-400 mt-2">Available for remote opportunities</p>
               </div>
             </div>
           </div>
@@ -115,9 +111,11 @@ const Footer = () => {
         <div className="border-t border-gray-800 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-2 text-gray-400 text-sm mb-4 md:mb-0">
-              <span>© {currentYear} {profileData.name}. All rights reserved.</span>
+              <span>
+                © {currentYear} {profileData.name}. All rights reserved.
+              </span>
             </div>
-            
+
             <div className="flex items-center space-x-2 text-gray-400 text-sm">
               <span>Built with</span>
               <HeartIcon className="h-4 w-4 text-red-500" />
@@ -132,23 +130,18 @@ const Footer = () => {
           className="fixed bottom-8 right-8 w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-40"
           aria-label="Back to top"
         >
-          <svg 
-            className="w-6 h-6" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M5 10l7-7m0 0l7 7m-7-7v18" 
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 10l7-7m0 0l7 7m-7-7v18"
             />
           </svg>
         </button>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

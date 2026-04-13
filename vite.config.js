@@ -16,16 +16,16 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
-            return 'react-vendor';
+            return 'react-vendor'
           }
           if (id.includes('node_modules/framer-motion/')) {
-            return 'framer-motion';
+            return 'framer-motion'
           }
           if (id.includes('node_modules/recharts/')) {
-            return 'recharts';
+            return 'recharts'
           }
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 })

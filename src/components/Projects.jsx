@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { EyeIcon, CodeBracketIcon, FunnelIcon } from '@heroicons/react/24/outline';
-import { profileData } from '../data/profile';
+import React, { useState } from 'react'
+import { EyeIcon, CodeBracketIcon, FunnelIcon } from '@heroicons/react/24/outline'
+import { profileData } from '../data/profile'
 
 const ProjectModal = ({ project, onClose }) => {
-  if (!project) return null;
+  if (!project) return null
 
   return (
     <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-all duration-300">
@@ -11,9 +11,7 @@ const ProjectModal = ({ project, onClose }) => {
         <div className="p-6">
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-              {project.name}
-            </h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{project.name}</h3>
             <button
               onClick={onClose}
               className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-2xl"
@@ -25,7 +23,10 @@ const ProjectModal = ({ project, onClose }) => {
           {/* Project Image */}
           <div className="w-full h-48 bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-lg mb-6 flex items-center justify-center">
             <div className="text-primary-600 dark:text-primary-400 text-4xl font-bold">
-              {project.name.split(' ').map(word => word[0]).join('')}
+              {project.name
+                .split(' ')
+                .map(word => word[0])
+                .join('')}
             </div>
           </div>
 
@@ -71,9 +72,7 @@ const ProjectModal = ({ project, onClose }) => {
           {/* Key Metrics */}
           <div className="mb-6">
             <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Key Achievement:</h4>
-            <p className="text-accent-600 dark:text-accent-400 font-medium">
-              {project.keyMetrics}
-            </p>
+            <p className="text-accent-600 dark:text-accent-400 font-medium">{project.keyMetrics}</p>
           </div>
 
           {/* Action Buttons */}
@@ -102,29 +101,33 @@ const ProjectModal = ({ project, onClose }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [activeFilter, setActiveFilter] = useState('All')
+  const [selectedProject, setSelectedProject] = useState(null)
 
-  const categories = ['All', 'E2E', 'API', 'Performance', 'AI'];
-  
-  const filteredProjects = activeFilter === 'All' 
-    ? profileData.projects 
-    : profileData.projects.filter(project => project.category === activeFilter);
+  const categories = ['All', 'E2E', 'API', 'Performance', 'AI']
 
-  const openProjectModal = (project) => {
-    setSelectedProject(project);
-  };
+  const filteredProjects =
+    activeFilter === 'All'
+      ? profileData.projects
+      : profileData.projects.filter(project => project.category === activeFilter)
+
+  const openProjectModal = project => {
+    setSelectedProject(project)
+  }
 
   const closeProjectModal = () => {
-    setSelectedProject(null);
-  };
+    setSelectedProject(null)
+  }
 
   return (
-    <section id="projects" className="section-padding bg-white dark:bg-slate-950 transition-colors duration-300">
+    <section
+      id="projects"
+      className="section-padding bg-white dark:bg-slate-950 transition-colors duration-300"
+    >
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -139,7 +142,7 @@ const Projects = () => {
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           <FunnelIcon className="h-5 w-5 text-gray-500 dark:text-gray-400 mt-2" />
-          {categories.map((category) => (
+          {categories.map(category => (
             <button
               key={category}
               onClick={() => setActiveFilter(category)}
@@ -156,15 +159,15 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="dark-elegant-card overflow-hidden card-hover group"
-            >
+          {filteredProjects.map(project => (
+            <div key={project.id} className="dark-elegant-card overflow-hidden card-hover group">
               {/* Project Image */}
               <div className="relative h-48 bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 flex items-center justify-center">
                 <div className="text-primary-600 dark:text-primary-400 text-4xl font-bold">
-                  {project.name.split(' ').map(word => word[0]).join('')}
+                  {project.name
+                    .split(' ')
+                    .map(word => word[0])
+                    .join('')}
                 </div>
                 {project.featured && (
                   <div className="absolute top-4 right-4">
@@ -181,9 +184,7 @@ const Projects = () => {
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                     {project.name}
                   </h3>
-                  <span className="skill-badge text-xs">
-                    {project.category}
-                  </span>
+                  <span className="skill-badge text-xs">{project.category}</span>
                 </div>
 
                 <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
@@ -223,7 +224,7 @@ const Projects = () => {
                     <EyeIcon className="h-4 w-4" />
                     <span>Details</span>
                   </button>
-                  
+
                   <a
                     href={project.githubUrl}
                     target="_blank"
@@ -251,7 +252,7 @@ const Projects = () => {
         <ProjectModal project={selectedProject} onClose={closeProjectModal} />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

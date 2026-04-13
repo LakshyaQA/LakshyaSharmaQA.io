@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { DocumentArrowDownIcon, EyeIcon, StarIcon } from '@heroicons/react/24/outline';
-import { profileData } from '../data/profile';
-import { useResumeDownload } from '../hooks/useResumeDownload';
+import React, { useState } from 'react'
+import { DocumentArrowDownIcon, EyeIcon, StarIcon } from '@heroicons/react/24/outline'
+import { profileData } from '../data/profile'
+import { useResumeDownload } from '../hooks/useResumeDownload'
 
 const Resume = () => {
-  const { handleDownload } = useResumeDownload();
-  const [showResumePreview, setShowResumePreview] = useState(false);
+  const { handleDownload } = useResumeDownload()
+  const [showResumePreview, setShowResumePreview] = useState(false)
 
   const toggleResumePreview = () => {
-    setShowResumePreview(!showResumePreview);
-  };
+    setShowResumePreview(!showResumePreview)
+  }
 
   // Get current month and year for "Resume last updated"
-  const currentDate = new Date();
-  const options = { month: "long", year: "numeric" };
-  const formattedDate = currentDate.toLocaleDateString("en-US", options);
+  const currentDate = new Date()
+  const options = { month: 'long', year: 'numeric' }
+  const formattedDate = currentDate.toLocaleDateString('en-US', options)
 
   return (
     <section id="resume" className="section-padding bg-gray-50 dark:bg-gray-800/50">
@@ -35,7 +35,7 @@ const Resume = () => {
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center">
               Career Highlights
             </h3>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {profileData.resume.highlights.map((highlight, index) => (
                 <div
@@ -45,9 +45,7 @@ const Resume = () => {
                   <div className="flex items-center justify-center mb-2">
                     <StarIcon className="h-5 w-5 text-primary-600 dark:text-primary-400" />
                   </div>
-                  <p className="text-sm font-medium text-gray-900 dark:text-white">
-                    {highlight}
-                  </p>
+                  <p className="text-sm font-medium text-gray-900 dark:text-white">{highlight}</p>
                 </div>
               ))}
             </div>
@@ -59,14 +57,14 @@ const Resume = () => {
               <div className="w-20 h-20 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
                 <DocumentArrowDownIcon className="h-10 w-10 text-primary-600 dark:text-primary-400" />
               </div>
-              
+
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 Professional Resume
               </h3>
-              
+
               <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-                Comprehensive document showcasing my experience in quality assurance, 
-                automation testing, and technical expertise across multiple domains.
+                Comprehensive document showcasing my experience in quality assurance, automation
+                testing, and technical expertise across multiple domains.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -77,7 +75,7 @@ const Resume = () => {
                   <DocumentArrowDownIcon className="h-5 w-5" />
                   <span>Download Resume (PDF)</span>
                 </button>
-                
+
                 <button
                   onClick={toggleResumePreview}
                   className="btn-secondary flex items-center space-x-2"
@@ -98,7 +96,7 @@ const Resume = () => {
                   Resume Preview
                 </h4>
               </div>
-              
+
               <div className="p-8">
                 {/* Header */}
                 <div className="text-center mb-8 pb-8 border-b border-gray-200 dark:border-gray-700">
@@ -139,11 +137,16 @@ const Resume = () => {
                           {skillCategory}
                         </h4>
                         <div className="flex flex-wrap gap-1">
-                          {profileData.skills[skillCategory].technologies.slice(0, 2).map((tech, techIndex) => (
-                            <span key={techIndex} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded">
-                              {tech}
-                            </span>
-                          ))}
+                          {profileData.skills[skillCategory].technologies
+                            .slice(0, 2)
+                            .map((tech, techIndex) => (
+                              <span
+                                key={techIndex}
+                                className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded"
+                              >
+                                {tech}
+                              </span>
+                            ))}
                         </div>
                       </div>
                     ))}
@@ -173,7 +176,10 @@ const Resume = () => {
                       </div>
                       <ul className="space-y-1 ml-4">
                         {exp.achievements.slice(0, 4).map((achievement, achIndex) => (
-                          <li key={achIndex} className="text-sm text-gray-700 dark:text-gray-300 list-disc">
+                          <li
+                            key={achIndex}
+                            className="text-sm text-gray-700 dark:text-gray-300 list-disc"
+                          >
                             {achievement}
                           </li>
                         ))}
@@ -189,11 +195,13 @@ const Resume = () => {
                       Education
                     </h3>
                     <div className="text-sm text-gray-600 dark:text-gray-400">
-                      <p className="font-medium">Bachelor's Degree in Computer Science/Engineering</p>
+                      <p className="font-medium">
+                        Bachelor's Degree in Computer Science/Engineering
+                      </p>
                       <p>Relevant Coursework: Software Testing, Database Management</p>
                     </div>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 border-l-4 border-primary-600 pl-3">
                       Certifications
@@ -218,7 +226,7 @@ const Resume = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Resume;
+export default Resume
