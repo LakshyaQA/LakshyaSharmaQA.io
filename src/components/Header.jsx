@@ -49,7 +49,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-700' 
+        ? 'bg-white/95 dark:glass-panel shadow-lg border-b border-gray-200 dark:border-slate-800/80' 
         : 'bg-transparent'
     }`}>
       <nav className="container-custom">
@@ -91,11 +91,11 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             {/* Theme Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-slate-300 hover:bg-gray-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-105 border border-transparent dark:border-slate-700/50"
               aria-label="Toggle theme"
             >
               {darkMode ? (
-                <SunIcon className="h-5 w-5" />
+                <SunIcon className="h-5 w-5 text-yellow-400" />
               ) : (
                 <MoonIcon className="h-5 w-5" />
               )}
@@ -105,7 +105,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+                className="p-2 rounded-lg text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors duration-200"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
@@ -120,7 +120,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+          <div className="md:hidden bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <button
@@ -128,8 +128,8 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                   onClick={() => scrollToSection(item.href)}
                   className={`block w-full text-left px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200 ${
                     activeSection === item.href.slice(1)
-                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 border border-primary-100 dark:border-primary-800/30'
+                      : 'text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800'
                   }`}
                 >
                   {item.name}

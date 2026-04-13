@@ -4,7 +4,7 @@ export const profileData = {
   title: "QA Automation Engineer",
   email: "lakshyasharmaqa@gmail.com",
   phone: "+91 9649975469",
-  location: "Pune, India",
+  location: "Jaipur, India",
   domain: "lakshyasharmaqa.dev",
   
   // Social Links
@@ -17,115 +17,137 @@ export const profileData = {
   // Hero Section
   hero: {
     headline: "QA Automation Engineer",
-    subheadline: "Selenium · Pytest/TestNG · Python/Java · JMeter · API Testing · Appium · CI/CD · AI Testing",
-    description: "QA Automation Engineer with 2+ years of experience improving regression efficiency by 40% and ensuring 95%+ release stability across Web, Mobile, API, and AI applications.",
+    subheadline: "Playwright · Appium · Python/TypeScript · Azure DevOps · Selenium · BrowserStack",
+    description: "QA Automation Engineer with 2.5+ years of expertise in architecting scalable automation frameworks, API & mobile testing, and high-performance Web testing using Playwright and Selenium.",
     typingText: [
-      "Web Applications",
-      "Mobile Apps",
+      "Web Automation",
+      "Mobile Automation",
       "API Systems",
-      "AI Applications",
-      "E2E Automation",
+      "Playwright E2E Automation",
+      "CI/CD Pipelines",
       "Performance Testing"
     ]
   },
 
   // About Section
   about: {
-    summary: "I'm Lakshya Sharma, a QA Automation Engineer based in Pune with 2+ years of experience building TDD-based automation frameworks, executing API & performance testing, and validating AI-driven systems. I specialize in streamlining release pipelines and integrating automation into CI/CD to accelerate stable releases.",
-    personalIntro: "Passionate about building robust QA processes, I leverage automation and shift-left testing to reduce bugs early, enhance efficiency, and deliver reliable, high-performance software."
+    summary: "I'm a QA Automation Engineer based in Jaipur with 2.5+ years of experience in the software testing lifecycle (STLC). I specialize in building TDD-based automation frameworks using Playwright and Appium, integrating robust CI/CD pipelines, and leveraging Agentic AI for optimized test planning and maintenance. I have a proven track record of accelerating regression execution by 40% and ensuring 95%+ release stability across Web, Mobile, and API applications.",
+    personalIntro: "Passionate about building robust QA processes, I leverage automation, performance testing, and prompt engineering to reduce bugs early, enhance efficiency, and deliver reliable, high-performance software."
   },
 
   // Skills
   skills: {
     "Test Automation": {
-      technologies: ["Selenium", "Pytest", "TestNG", "Playwright", "Appium"],
-      proficiency: 90
+      technologies: ["Selenium", "Pytest", "Appium", "Playwright", "BrowserStack", "SDET Practices", "WebDriverIO", "Mocha"],
+      proficiency: 95
     },
     "API Testing": {
-      technologies: ["REST Assured", "Postman", "Swagger", "Requests"],
-      proficiency: 85
+      technologies: ["REST Assured", "Postman", "Swagger", "Requests Library", "SQL Validation"],
+      proficiency: 90
     },
-    "Performance Testing": {
-      technologies: ["JMeter", "Locust"],
-      proficiency: 80
+    "Testing Types": {
+      technologies: ["Functional", "End-to-End", "Regression", "Sanity", "JMeter/Locust", "Performance & Security (OWASP)"],
+      proficiency: 85
     },
     "CI/CD & DevOps": {
-      technologies: ["Jenkins", "GitLab CI", "Kubernetes", "Kafka",  "Docker"],
-      proficiency: 75
+      technologies: ["Azure Pipelines", "Jenkins", "GitHub Actions", "GitLab CI", "Docker", "Kubernetes", "Git (YML)"],
+      proficiency: 80
     },
-    "Programming": {
-      technologies: ["Python", "Java"],
+    "Languages": {
+      technologies: ["TypeScript", "Core Java", "Python", "SQL"],
       proficiency: 85
     },
-    "Databases": {
-      technologies: ["MySQL", "PostgreSQL"],
-      proficiency: 70
+    "AI & Prompting": {
+      technologies: ["Prompt Engineering", "Agentic AI", "AI Model Validation", "Generative AI"],
+      proficiency: 80
     },
-    "Cloud & Tools": {
-      technologies: ["Azure", "Zephyr", "Git", "Jira", "TestRail"],
-      proficiency: 75
+    "Agile & Tracking": {
+      technologies: ["JIRA", "Zephyr", "Confluence", "BrowserStack", "Azure DevOps", "Azure Test Plan", "Scrum", "Test Planning", "Bug Tracking"],
+      proficiency: 90
     }
   },
 
   // Experience
   experience: [
     {
+      company: "TuningBill Services Pvt Ltd.",
+      role: "QA Automation Engineer",
+      duration: "Oct 2025 - Present",
+      location: "Jaipur, India",
+      logo: "/api/placeholder/60/60",
+      achievements: [
+        "Architected and refactored a scalable Mobile Automation Framework from scratch using POM and TDD patterns",
+        "Implemented Android and iOS test execution using Appium with BrowserStack for parallel execution",
+        "Integrated 3+ test suites into CI/CD pipelines using Azure DevOps and Jenkins, reducing manual execution by 50%",
+        "Developed Playwright-based web automation in TypeScript covering critical user journeys across all major browsers",
+        "Leveraged Agentic AI and prompt engineering to automate manual test case creation and framework maintenance",
+        "Analyzed flaky test failures and optimized waits/retries, improving pipeline stability and reliability"
+      ],
+      projects: ["smiONE: Fintech Payment System"]
+    },
+    {
       company: "IIHT-Techademy",
       role: "QA Automation Engineer",
-      duration: "Aug 2023 - Present",
+      duration: "Aug 2023 - Oct 2025",
       location: "Pune, India",
       logo: "/api/placeholder/60/60",
       achievements: [
         "Boosted regression efficiency by 40% through hybrid test automation framework (Selenium, Pytest, TestNG)",
         "Reduced crash rates by 30% via rigorous testing and shift-left bug detection",
-        "Integrated 3+ automation suites into CI/CD pipelines, cutting manual execution by 50%",
+        "Integrated automation suites into Jenkins CI/CD pipelines, cutting manual execution effort",
         "Executed performance testing with JMeter, improving response times by 20%",
-        "Led quality assurance for AI-driven projects including AEYE (AI Proctoring System)",
-        "Managed end-to-end testing for Yaksha Assessment Platform and Techademy Campus Portal"
+        "Led quality assurance for AI-driven projects including AEYE Proctoring System",
+        "Managed end-to-end testing for Yaksha Assessment Platform and Campus Portal"
       ],
       projects: ["AEYE - AI Proctoring System", "YAKSHA - Assessment Platform", "Techademy Campus Portal"]
     }
   ],
 
-    // Personal Projects
-projects: [
-  {
-    id: 1,
-    name: "CarDekho Functional Automation",
-    category: "E2E",
-    description: "Automated functional user journeys on the CarDekho platform using Selenium, Java, Maven, and TestNG.",
-    problem: "Validating core flows like car selection, dropdown filters, and navigation manually was repetitive and error-prone.",
-    solution: "Developed a modular automation suite covering end-to-end scenarios such as selecting cars (e.g., Thar) via dropdowns, navigating detail pages, and asserting expected results.",
-    techStack: ["Selenium", "Java", "Maven", "TestNG", "POM"],
-    keyMetrics: "Improved test accuracy and reduced manual validation effort by 65%.",
-    githubUrl: "https://github.com/LakshyaQA/ExlatProjectCarDekho",
-    demoUrl: null,
-    image: "/api/placeholder/400/250",
-    featured: true
-  },
+  // Personal Projects (Non-Professional)
+  projects: [
     {
-  id: 2,
-  name: "I2V QA Testing Suite (IQTS)",
-  category: "API",
-  description: "Developed a web automation testing framework for a CCTV control portal, automating positive/negative flows and integrating Jenkins for CI/CD with detailed reporting and screenshots.",
-  problem: "The CCTV control portal required comprehensive validation of admin workflows such as camera control, user onboarding, and system management. Ensuring both normal and negative API flows with edge cases was a major challenge.",
-  solution: "Built a robust API testing framework to validate all endpoints, automating positive and negative flows. Integrated Jenkins pipelines to run automated tests on every commit, generating detailed reports with screenshots for better issue tracking.",
-  techStack: ["Python", "Pytest", "JMeter", "Allure/Py-HTML Reports", "API Testing", "Jenkins"],
-  keyMetrics: "Achieved 95% API coverage and identified 23 critical bugs before production",
-  githubUrl: "https://github.com/LakshyaQA/i2v_qa",
-  demoUrl: null,
-  image: "/api/placeholder/400/250",
-  featured: true
-}
-
+      id: 1,
+      name: "CarDekho Functional Automation",
+      category: "E2E",
+      description: "Automated functional user journeys on the CarDekho platform using Selenium, Java, Maven, and TestNG.",
+      problem: "Validating core flows like car selection and navigation manually was repetitive and error-prone.",
+      solution: "Developed a modular automation suite using POM for end-to-end scenarios covering car selection and detail page validation.",
+      techStack: ["Selenium", "Java", "Maven", "TestNG", "POM"],
+      keyMetrics: "Improved test accuracy and reduced manual validation effort by 65%.",
+      githubUrl: "https://github.com/LakshyaQA/ExlatProjectCarDekho",
+      demoUrl: null,
+      image: "/api/placeholder/400/250",
+      featured: true
+    },
+    {
+      id: 2,
+      name: "I2V QA Testing Suite (IQTS)",
+      category: "API",
+      description: "Web automation framework for CCTV control portals with API validation and CI/CD integration.",
+      problem: "CCTV portals required high-reliability validation of camera control and user onboarding.",
+      solution: "Built a robust API testing framework in Python/Pytest with Jenkins pipelines for automated reporting.",
+      techStack: ["Python", "Pytest", "JMeter", "Allure", "API Testing", "Jenkins"],
+      keyMetrics: "Achieved 95% API coverage and identified 23 critical bugs before production",
+      githubUrl: "https://github.com/LakshyaQA/i2v_qa",
+      demoUrl: null,
+      image: "/api/placeholder/400/250",
+      featured: true
+    }
   ],
 
-  // Professional Projects (Experience)
+  // Professional Projects (Experience Summary)
   professionalProjects: [
     {
+      name: "smiONE: Fintech Payment System",
+      description: "Fintech payment ecosystem requiring high security and cross-platform reliability.",
+      role: "Lead Mobile & Web Automation Engineer focusing on Appium and Playwright orchestration",
+      techStack: ["Appium", "Playwright", "TypeScript", "BrowserStack", "Azure DevOps"],
+      impact: "50% reduction in manual regression time and 95%+ release stability"
+    },
+    {
       name: "AEYE - AI Proctoring System",
-      description: "AI-powered proctoring solution for online examinations with real-time monitoring.",
-      role: "Led automation & performance testing including AI model validation, WebSocket, and load testing",
+      description: "AI-powered proctoring solution with real-time monitoring and AI model validation.",
+      role: "Led automation & performance testing including WebSocket and load testing",
       techStack: ["Python", "Selenium", "JMeter", "Kafka", "Azure"],
       impact: "Improved system stability by 30% and throughput by 20%"
     },
@@ -135,14 +157,13 @@ projects: [
       role: "Implemented automation frameworks, database validation, and CI/CD integration",
       techStack: ["Selenium", "Pytest", "REST Assured", "PostgreSQL", "Jenkins"],
       impact: "Achieved 95%+ platform reliability and reduced load times by 40%"
-    },
-    {
-      name: "Techademy Campus Portal",
-      description: "Student management and learning platform for educational institutions.",
-      role: "Designed regression suites and automated API/sanity checks",
-      techStack: ["Selenium", "TestNG", "MySQL", "API Testing"],
-      impact: "Maintained 95%+ stability post-updates and improved user experience"
     }
+  ],
+
+  // Certifications
+  certifications: [
+    "ISTQB Certified Tester Foundation Level (CTFL)",
+    "Generative AI Foundation - UpGrad"
   ],
 
   // Testimonials
@@ -163,22 +184,22 @@ projects: [
 
   // Resume
   resume: {
-    downloadUrl: "/lakshyaSharmaQaAutomationEngineerResume.pdf",
+    downloadUrl: "/Lakshya_Sharma_QA_Resume.pdf",
     highlights: [
+      "2.5+ Years Experience",
+      "Appium & Playwright Expert",
+      "Web testing using Playwright and Selenium",
       "95%+ Release Stability",
-      "40% Efficiency Gains",
-      "2+ Years Experience",
-      "AI Testing Expertise",
-      "CI/CD Integration",
-      "Performance Optimization"
+      "50% Regression Efficiency Gains",
+      "CI/CD Orchestration (Azure DevOps)"
     ]
   },
 
   // SEO Data
   seo: {
     title: "Lakshya Sharma | QA Automation Engineer Portfolio",
-    description: "QA Automation Engineer with 2+ years experience in Selenium, Pytest, JMeter, and CI/CD. Specializing in Web, Mobile, API, and AI testing with proven track record of 95%+ release stability.",
-    keywords: "QA Automation Engineer, Selenium, Pytest, JMeter, API Testing, Performance Testing, CI/CD, Automation, Quality Assurance, Lakshya Sharma",
+    description: "QA Automation Engineer with 2.5+ years experience in Playwright, Appium, Selenium, and Azure DevOps. Specializing in Web, Mobile, and API testing with a focus on Jaipur/Pune locations.",
+    keywords: "QA Automation Engineer, Playwright, Appium, Selenium, Azure DevOps, BrowserStack, Web testing, Agentic AI, Jaipur QA, Lakshya Sharma",
     ogImage: "/og-image.jpg"
   }
 };

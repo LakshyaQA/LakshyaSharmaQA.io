@@ -37,7 +37,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="section-padding bg-white dark:bg-gray-900">
+    <section id="skills" className="section-padding bg-white dark:bg-slate-950 transition-colors duration-300">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -53,7 +53,7 @@ const Skills = () => {
           {Object.entries(profileData.skills).map(([category, skillData], index) => (
             <div 
               key={category}
-              className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 card-hover"
+              className="dark-elegant-card p-6 card-hover"
               style={{
                 animationDelay: `${index * 100}ms`
               }}
@@ -105,9 +105,9 @@ const Skills = () => {
               </div>
 
               {/* Experience Level Indicator */}
-              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-slate-800/50">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500 dark:text-gray-400">Experience Level</span>
+                  <span className="text-xs text-gray-500 dark:text-slate-500">Experience Level</span>
                   <div className="flex items-center space-x-1">
                     {[...Array(5)].map((_, i) => (
                       <div 
@@ -127,7 +127,7 @@ const Skills = () => {
         </div>
 
         {/* Skills Summary */}
-        <div className="mt-16 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20 rounded-2xl p-8">
+        <div className="mt-16 bg-gradient-elegant dark:border dark:border-slate-800/80 rounded-2xl p-8 shadow-sm">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               Quality Assurance Expertise
