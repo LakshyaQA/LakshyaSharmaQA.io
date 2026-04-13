@@ -35,17 +35,28 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+      console.error("EmailJS configuration is missing. Please set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY in your environment variables.");
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       await emailjs.send(
-        "service_r4spcw3",     // 👈 replace with EmailJS service ID
-        "template_pinht7g",    // 👈 replace with EmailJS template ID
+        SERVICE_ID,
+        TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        "MwUtW2NiKAEe4iTyE"    // ✅ your EmailJS public key
+        PUBLIC_KEY
       );
 
       setSubmitStatus('success');

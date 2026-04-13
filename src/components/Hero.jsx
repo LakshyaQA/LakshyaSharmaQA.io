@@ -23,10 +23,11 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
-  const [currentQuote, setCurrentQuote] = useState('');
+  const [currentQuote, setCurrentQuote] = useState(
+    () => qaQuotes[Math.floor(Math.random() * qaQuotes.length)]
+  );
 
   useEffect(() => {
-    setCurrentQuote(qaQuotes[Math.floor(Math.random() * qaQuotes.length)]);
     const interval = setInterval(() => {
       setCurrentQuote(qaQuotes[Math.floor(Math.random() * qaQuotes.length)]);
     }, 3000);

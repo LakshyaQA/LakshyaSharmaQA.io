@@ -198,9 +198,9 @@ const Resume = () => {
                       Certifications
                     </h3>
                     <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                      <li>• Selenium WebDriver Certification</li>
-                      <li>• API Testing Professional</li>
-                      <li>• Performance Testing Specialist</li>
+                      {profileData.certifications.map((cert, index) => (
+                        <li key={index}>• {cert}</li>
+                      ))}
                     </ul>
                   </div>
                 </div>
