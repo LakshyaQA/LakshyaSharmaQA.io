@@ -184,7 +184,7 @@ export const profileData = {
 
   // Resume
   resume: {
-    downloadUrl: "/Lakshya_Sharma_QA_Resume.pdf",
+    downloadUrl: "/LakshyaSharmaQAAutomationEngineerResume.pdf",
     highlights: [
       "2.5+ Years Experience",
       "Appium & Playwright Expert",
