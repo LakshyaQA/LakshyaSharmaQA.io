@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowDownIcon, DocumentArrowDownIcon, EyeIcon } from '@heroicons/react/24/outline';
 import { profileData } from '../data/profile';
+import { useResumeDownload } from '../hooks/useResumeDownload';
 
 // ✅ Import your profile image
 import profilePic from '../assets/profile-portfolio.png';
@@ -19,6 +20,7 @@ const qaQuotes = [
 const typingTexts = profileData.hero.typingText;
 
 const Hero = () => {
+  const { handleDownload } = useResumeDownload();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -125,14 +127,13 @@ const Hero = () => {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-              <a
-                href={profileData.resume.downloadUrl}
-                download
+              <button
+                onClick={() => handleDownload(profileData.resume.downloadUrl)}
                 className="btn-primary flex items-center space-x-2"
               >
                 <DocumentArrowDownIcon className="h-5 w-5" />
                 <span>Download Resume</span>
-              </a>
+              </button>
               <button
                 onClick={() => scrollToSection('projects')}
                 className="btn-secondary flex items-center space-x-2"

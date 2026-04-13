@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { DocumentArrowDownIcon, EyeIcon, StarIcon } from '@heroicons/react/24/outline';
 import { profileData } from '../data/profile';
+import { useResumeDownload } from '../hooks/useResumeDownload';
 
 const Resume = () => {
+  const { handleDownload } = useResumeDownload();
   const [showResumePreview, setShowResumePreview] = useState(false);
 
   const toggleResumePreview = () => {
@@ -68,14 +70,13 @@ const Resume = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a
-                  href={profileData.resume.downloadUrl}
-                  download="Lakshya_Sharma_QA_Resume.pdf"
+                <button
+                  onClick={() => handleDownload(profileData.resume.downloadUrl)}
                   className="btn-primary flex items-center space-x-2"
                 >
                   <DocumentArrowDownIcon className="h-5 w-5" />
                   <span>Download Resume (PDF)</span>
-                </a>
+                </button>
                 
                 <button
                   onClick={toggleResumePreview}

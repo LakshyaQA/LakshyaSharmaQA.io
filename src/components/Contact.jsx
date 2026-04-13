@@ -10,8 +10,10 @@ import {
   ClipboardDocumentIcon
 } from '@heroicons/react/24/outline';
 import { profileData } from '../data/profile';
+import { useToast } from '../context/ToastContext';
 
 const Contact = () => {
+  const { addToast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,8 +21,6 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-  const [copySuccess, setCopySuccess] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,15 +33,14 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus(null);
 
     const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      console.error("EmailJS configuration is missing. Please set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY in your environment variables.");
-      setSubmitStatus('error');
+      console.error("EmailJS configuration is missing.");
+      addToast("Oh no! Looks like I haven't tested my own website configuration... Lakshya is fixing it! 🔧", 'error');
       setIsSubmitting(false);
       return;
     }
@@ -59,11 +58,11 @@ const Contact = () => {
         PUBLIC_KEY
       );
 
-      setSubmitStatus('success');
+      addToast("Message sent! My API didn't crash this time. Lakshya will reply soon! 📧", 'success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error("EmailJS error:", error);
-      setSubmitStatus('error');
+      addToast("Failed to send message. You found a bug—I promise I'm better at testing your software! 😅", 'error');
     }
 
     setIsSubmitting(false);
@@ -72,8 +71,7 @@ const Contact = () => {
   const copyEmailToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(profileData.email);
-      setCopySuccess(true);
-      setTimeout(() => setCopySuccess(false), 2000);
+      addToast("Email captured! It's safe in your clipboard... for now. 📋", 'success');
     } catch {
       const textArea = document.createElement('textarea');
       textArea.value = profileData.email;
@@ -81,8 +79,7 @@ const Contact = () => {
       textArea.select();
       document.execCommand('copy');
       document.body.removeChild(textArea);
-      setCopySuccess(true);
-      setTimeout(() => setCopySuccess(false), 2000);
+      addToast("Email captured! It's safe in your clipboard... for now. 📋", 'success');
     }
   };
 
@@ -135,9 +132,6 @@ const Contact = () => {
                     >
                       <ClipboardDocumentIcon className="h-4 w-4" />
                     </button>
-                    {copySuccess && (
-                      <span className="text-green-500 text-sm">Copied!</span>
-                    )}
                   </div>
                 </div>
               </div>
@@ -263,20 +257,6 @@ const Contact = () => {
                     </>
                   )}
                 </button>
-
-                {submitStatus === 'success' && (
-                  <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
-                    <CheckCircleIcon className="h-5 w-5" />
-                    <span>Message sent successfully! I'll get back to you soon.</span>
-                  </div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <div className="flex items-center space-x-2 text-red-600 dark:text-red-400">
-                    <ExclamationCircleIcon className="h-5 w-5" />
-                    <span>Failed to send message. Please try emailing me directly.</span>
-                  </div>
-                )}
               </form>
             </div>
           </div>

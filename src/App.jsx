@@ -8,6 +8,8 @@ import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { ToastProvider } from './context/ToastContext';
+import Toast from './components/Toast';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -37,19 +39,22 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 transition-colors duration-300">
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Resume />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <ToastProvider>
+      <div className="min-h-screen bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 transition-colors duration-300">
+        <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Resume />
+          <Contact />
+        </main>
+        <Footer />
+        <Toast />
+      </div>
+    </ToastProvider>
   );
 }
 
