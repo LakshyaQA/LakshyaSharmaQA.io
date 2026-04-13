@@ -20,15 +20,15 @@ A professional, responsive portfolio website built with **React 19**, **Vite**, 
 
 ## Tech Stack
 
-| Category | Technology |
-|---|---|
-| Framework | React 19, Vite |
-| Styling | Tailwind CSS v4, PostCSS |
-| Animations | Framer Motion |
-| Charts | Recharts |
-| Icons | Heroicons |
-| Contact Form | EmailJS |
-| Deployment | Vercel |
+| Category     | Technology               |
+| ------------ | ------------------------ |
+| Framework    | React 19, Vite           |
+| Styling      | Tailwind CSS v4, PostCSS |
+| Animations   | Framer Motion            |
+| Charts       | Recharts                 |
+| Icons        | Heroicons                |
+| Contact Form | EmailJS                  |
+| Deployment   | Vercel                   |
 
 ---
 
@@ -124,14 +124,14 @@ You do **not** need to touch individual components for content updates. Just edi
 
 ### Key things to update:
 
-| What | Where |
-|---|---|
-| Name, title, bio, contact info | `src/data/profile.js` |
-| Work experience | `src/data/profile.js` → `experience` array |
-| Projects | `src/data/profile.js` → `projects` array |
-| Skills | `src/data/profile.js` → `skills` array |
-| Resume PDF | Replace `/public/resume.pdf` with your file |
-| Colors / Theme | `tailwind.config.js` → `theme.extend.colors` |
+| What                           | Where                                        |
+| ------------------------------ | -------------------------------------------- |
+| Name, title, bio, contact info | `src/data/profile.js`                        |
+| Work experience                | `src/data/profile.js` → `experience` array   |
+| Projects                       | `src/data/profile.js` → `projects` array     |
+| Skills                         | `src/data/profile.js` → `skills` array       |
+| Resume PDF                     | Replace `/public/resume.pdf` with your file  |
+| Colors / Theme                 | `tailwind.config.js` → `theme.extend.colors` |
 
 ---
 

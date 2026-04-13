@@ -5,6 +5,7 @@
 ### Option 1: Vercel (Recommended) ⚡
 
 1. **Push to GitHub**
+
    ```bash
    git add .
    git commit -m "Complete QA portfolio website"
@@ -27,6 +28,7 @@
 ### Option 2: Netlify 🌐
 
 1. **Build the project**
+
    ```bash
    yarn build
    ```
@@ -43,11 +45,13 @@
 ### Option 3: GitHub Pages 📄
 
 1. **Install gh-pages**
+
    ```bash
    yarn add -D gh-pages
    ```
 
 2. **Add deploy script to package.json**
+
    ```json
    {
      "scripts": {
@@ -115,12 +119,13 @@ VITE_EMAILJS_TEMPLATE_ID=your_emailjs_template_id
 ## Maintenance 🔄
 
 - **Monthly**: Update project descriptions and metrics
-- **Quarterly**: Add new projects and achievements  
+- **Quarterly**: Add new projects and achievements
 - **Annually**: Refresh design and technology stack
 
 ## Support 💬
 
 Need help with deployment?
+
 - 📧 Email: lakshyasharmaqa@gmail.com
 - 💼 LinkedIn: [lakshyasharmaqa](https://linkedin.com/in/lakshyasharmaqa)
 

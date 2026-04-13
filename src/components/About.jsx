@@ -1,33 +1,43 @@
-import React from 'react';
-import { ChartBarIcon, CodeBracketIcon, CogIcon, RocketLaunchIcon ,CpuChipIcon } from '@heroicons/react/24/outline';
-import { profileData } from '../data/profile';
+import React from 'react'
+import {
+  ChartBarIcon,
+  CodeBracketIcon,
+  CogIcon,
+  RocketLaunchIcon,
+  CpuChipIcon,
+} from '@heroicons/react/24/outline'
+import { profileData } from '../data/profile'
 
 const About = () => {
   const testingProcess = [
     {
-      step: "Test Design & Development",
+      step: 'Test Design & Development',
       icon: CodeBracketIcon,
-      description: "Design comprehensive test strategies and develop automated test frameworks"
+      description: 'Design comprehensive test strategies and develop automated test frameworks',
     },
     {
-      step: "Automation & Execution",
+      step: 'Automation & Execution',
       icon: CogIcon,
-      description: "Implement automated test suites with continuous integration"
+      description: 'Implement automated test suites with continuous integration',
     },
     {
-      step: "Performance & Monitoring",
+      step: 'Performance & Monitoring',
       icon: ChartBarIcon,
-      description: "Conduct performance testing and monitor application metrics"
+      description: 'Conduct performance testing and monitor application metrics',
     },
     {
-      step: "AI testing & AI driven testing",
+      step: 'AI testing & AI driven testing',
       icon: CpuChipIcon,
-      description: "Leverage AI testing and AI-driven automation to validate models and optimized ,faster,more reliable releases"
-    }
-  ];
+      description:
+        'Leverage AI testing and AI-driven automation to validate models and optimized ,faster,more reliable releases',
+    },
+  ]
 
   return (
-    <section id="about" className="section-padding bg-gray-50 dark:bg-slate-900 transition-colors duration-300">
+    <section
+      id="about"
+      className="section-padding bg-gray-50 dark:bg-slate-900 transition-colors duration-300"
+    >
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -52,15 +62,21 @@ const About = () => {
             <div className="grid grid-cols-2 gap-6 pt-6">
               <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-transparent dark:border-slate-700/50 hover:shadow-md transition-all">
                 <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">2+</div>
-                <div className="text-sm text-gray-600 dark:text-slate-400 mt-1">Years Experience</div>
+                <div className="text-sm text-gray-600 dark:text-slate-400 mt-1">
+                  Years Experience
+                </div>
               </div>
               <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-transparent dark:border-slate-700/50 hover:shadow-md transition-all">
                 <div className="text-3xl font-bold text-accent-500">95%</div>
-                <div className="text-sm text-gray-600 dark:text-slate-400 mt-1">Release Stability</div>
+                <div className="text-sm text-gray-600 dark:text-slate-400 mt-1">
+                  Release Stability
+                </div>
               </div>
               <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-transparent dark:border-slate-700/50 hover:shadow-md transition-all">
                 <div className="text-3xl font-bold text-secondary-600">40%</div>
-                <div className="text-sm text-gray-600 dark:text-slate-400 mt-1">Efficiency Gain</div>
+                <div className="text-sm text-gray-600 dark:text-slate-400 mt-1">
+                  Efficiency Gain
+                </div>
               </div>
               <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-transparent dark:border-slate-700/50 hover:shadow-md transition-all">
                 <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">6+</div>
@@ -109,7 +125,7 @@ const About = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

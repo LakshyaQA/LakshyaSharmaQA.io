@@ -1,74 +1,76 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowDownIcon, DocumentArrowDownIcon, EyeIcon } from '@heroicons/react/24/outline';
-import { profileData } from '../data/profile';
+import React, { useState, useEffect } from 'react'
+import { ArrowDownIcon, DocumentArrowDownIcon, EyeIcon } from '@heroicons/react/24/outline'
+import { profileData } from '../data/profile'
+import { useResumeDownload } from '../hooks/useResumeDownload'
 
 // ✅ Import your profile image
-import profilePic from '../assets/profile-portfolio.png';
+import profilePic from '../assets/profile-portfolio.png'
 
 // Defined outside component — stable references, no re-creation on render
 const qaQuotes = [
-  "Ooh, facing bugs in production?",
-  "Need a QA to safeguard your release?",
-  "Want to hire someone to break it before your users do?",
-  "Struggling with automation coverage?",
-  "Looking for someone to ensure your website never crashes?",
-  "Bugs love hiding… QA loves finding them!",
-  "Hire QA → Ship quality 🚀",
-];
+  'Ooh, facing bugs in production?',
+  'Need a QA to safeguard your release?',
+  'Want to hire someone to break it before your users do?',
+  'Struggling with automation coverage?',
+  'Looking for someone to ensure your website never crashes?',
+  'Bugs love hiding… QA loves finding them!',
+  'Hire QA → Ship quality 🚀',
+]
 
-const typingTexts = profileData.hero.typingText;
+const typingTexts = profileData.hero.typingText
 
 const Hero = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [showCursor, setShowCursor] = useState(true);
+  const { handleDownload } = useResumeDownload()
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [displayText, setDisplayText] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [showCursor, setShowCursor] = useState(true)
   const [currentQuote, setCurrentQuote] = useState(
     () => qaQuotes[Math.floor(Math.random() * qaQuotes.length)]
-  );
+  )
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentQuote(qaQuotes[Math.floor(Math.random() * qaQuotes.length)]);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+      setCurrentQuote(qaQuotes[Math.floor(Math.random() * qaQuotes.length)])
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   useEffect(() => {
     const handleTyping = () => {
-      const currentText = typingTexts[currentIndex];
+      const currentText = typingTexts[currentIndex]
       if (!isDeleting) {
-        setDisplayText(currentText.substring(0, displayText.length + 1));
+        setDisplayText(currentText.substring(0, displayText.length + 1))
         if (displayText === currentText) {
-          setTimeout(() => setIsDeleting(true), 2000);
+          setTimeout(() => setIsDeleting(true), 2000)
         }
       } else {
-        setDisplayText(currentText.substring(0, displayText.length - 1));
+        setDisplayText(currentText.substring(0, displayText.length - 1))
         if (displayText === '') {
-          setIsDeleting(false);
-          setCurrentIndex((prev) => (prev + 1) % typingTexts.length);
+          setIsDeleting(false)
+          setCurrentIndex(prev => (prev + 1) % typingTexts.length)
         }
       }
-    };
+    }
 
-    const typingSpeed = isDeleting ? 50 : 100;
-    const timer = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [displayText, isDeleting, currentIndex]);
+    const typingSpeed = isDeleting ? 50 : 100
+    const timer = setTimeout(handleTyping, typingSpeed)
+    return () => clearTimeout(timer)
+  }, [displayText, isDeleting, currentIndex])
 
   useEffect(() => {
     const cursorTimer = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 500);
-    return () => clearInterval(cursorTimer);
-  }, []);
+      setShowCursor(prev => !prev)
+    }, 500)
+    return () => clearInterval(cursorTimer)
+  }, [])
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
+  const scrollToSection = sectionId => {
+    const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth' })
     }
-  };
+  }
 
   return (
     <section
@@ -81,12 +83,10 @@ const Hero = () => {
         <div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-accent-100/20 to-primary-100/20 dark:from-accent-900/10 dark:to-primary-900/10 rounded-full blur-3xl"></div>
       </div>
 
-            <div className="container-custom section-padding relative z-10 w-full">
+      <div className="container-custom section-padding relative z-10 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
-
           {/* Left — Text Content */}
           <div className="flex-1 text-center lg:text-left space-y-8">
-
             {/* Dynamic QA Quote */}
             <p className="text-lg sm:text-xl text-primary-600 dark:text-primary-400 font-medium animate-fade-in">
               {currentQuote}
@@ -101,7 +101,9 @@ const Hero = () => {
                 <span>Automating Quality for </span>
                 <span className="ml-2 font-semibold">
                   {displayText}
-                  <span className={`typing-cursor ${showCursor ? 'opacity-100' : 'opacity-0'}`}>|</span>
+                  <span className={`typing-cursor ${showCursor ? 'opacity-100' : 'opacity-0'}`}>
+                    |
+                  </span>
                 </span>
               </div>
             </div>
@@ -125,14 +127,13 @@ const Hero = () => {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-              <a
-                href={profileData.resume.downloadUrl}
-                download
+              <button
+                onClick={() => handleDownload(profileData.resume.downloadUrl)}
                 className="btn-primary flex items-center space-x-2"
               >
                 <DocumentArrowDownIcon className="h-5 w-5" />
                 <span>Download Resume</span>
-              </a>
+              </button>
               <button
                 onClick={() => scrollToSection('projects')}
                 className="btn-secondary flex items-center space-x-2"
@@ -155,7 +156,6 @@ const Hero = () => {
               </div>
             </div>
           </div>
-
         </div>
 
         {/* Scroll Indicator */}
@@ -170,7 +170,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

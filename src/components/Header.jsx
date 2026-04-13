@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline';
-import { profileData } from '../data/profile';
+import React, { useState, useEffect } from 'react'
+import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline'
+import { profileData } from '../data/profile'
 
 const Header = ({ darkMode, toggleDarkMode }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('hero')
 
   const navigation = [
     { name: 'Home', href: '#hero' },
@@ -15,60 +15,64 @@ const Header = ({ darkMode, toggleDarkMode }) => {
     { name: 'Projects', href: '#projects' },
     { name: 'Resume', href: '#resume' },
     { name: 'Contact', href: '#contact' },
-  ];
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 50)
 
       // Update active section based on scroll position
-      const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'resume', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'resume', 'contact']
       const current = sections.find(section => {
-        const element = document.getElementById(section);
+        const element = document.getElementById(section)
         if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          const rect = element.getBoundingClientRect()
+          return rect.top <= 100 && rect.bottom >= 100
         }
-        return false;
-      });
-      if (current) setActiveSection(current);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+        return false
+      })
+      if (current) setActiveSection(current)
     }
-    setIsMenuOpen(false);
-  };
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToSection = href => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+    setIsMenuOpen(false)
+  }
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/95 dark:glass-panel shadow-lg border-b border-gray-200 dark:border-slate-800/80' 
-        : 'bg-transparent'
-    }`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/95 dark:glass-panel shadow-lg border-b border-gray-200 dark:border-slate-800/80'
+          : 'bg-transparent'
+      }`}
+    >
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <button 
+            <button
               onClick={() => scrollToSection('#hero')}
               className="text-xl font-bold text-gradient hover:scale-105 transition-transform duration-200"
             >
               {profileData.name.split(' ').map((word, index) => (
-                <span key={index} className="mr-1">{word}</span>
+                <span key={index} className="mr-1">
+                  {word}
+                </span>
               ))}
             </button>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
+            {navigation.map(item => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
@@ -108,11 +112,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                 className="p-2 rounded-lg text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors duration-200"
                 aria-label="Toggle menu"
               >
-                {isMenuOpen ? (
-                  <XMarkIcon className="h-6 w-6" />
-                ) : (
-                  <Bars3Icon className="h-6 w-6" />
-                )}
+                {isMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
               </button>
             </div>
           </div>
@@ -122,7 +122,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
         {isMenuOpen && (
           <div className="md:hidden bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
+              {navigation.map(item => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
@@ -140,7 +140,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
         )}
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
