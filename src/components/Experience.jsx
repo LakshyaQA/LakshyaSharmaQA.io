@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
-import { CalendarIcon, MapPinIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
-import { profileData } from '../data/profile';
+import React, { useState } from 'react'
+import {
+  CalendarIcon,
+  MapPinIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from '@heroicons/react/24/outline'
+import { profileData } from '../data/profile'
 
 const Experience = () => {
-  const [expandedExperience, setExpandedExperience] = useState(0);
-  const [expandedProject, setExpandedProject] = useState(null);
+  const [expandedExperience, setExpandedExperience] = useState(0)
+  const [expandedProject, setExpandedProject] = useState(null)
 
-  const toggleExperience = (index) => {
-    setExpandedExperience(expandedExperience === index ? -1 : index);
-  };
+  const toggleExperience = index => {
+    setExpandedExperience(expandedExperience === index ? -1 : index)
+  }
 
-  const toggleProject = (projectName) => {
-    setExpandedProject(expandedProject === projectName ? null : projectName);
-  };
+  const toggleProject = projectName => {
+    setExpandedProject(expandedProject === projectName ? null : projectName)
+  }
 
   return (
     <section id="experience" className="section-padding bg-gray-50 dark:bg-gray-800/50">
@@ -27,7 +32,7 @@ const Experience = () => {
           </p>
         </div>
 
-                <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Experience Timeline */}
           <div className="relative">
             {/* Timeline Line */}
@@ -35,7 +40,8 @@ const Experience = () => {
               className="absolute left-8 top-0 bottom-0"
               style={{
                 width: '2px',
-                backgroundImage: 'repeating-linear-gradient(to bottom, #d1d5db 0px, #d1d5db 8px, transparent 8px, transparent 16px)'
+                backgroundImage:
+                  'repeating-linear-gradient(to bottom, #d1d5db 0px, #d1d5db 8px, transparent 8px, transparent 16px)',
               }}
             ></div>
 
@@ -65,7 +71,7 @@ const Experience = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="flex flex-col sm:items-end space-y-1">
                       <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm">
                         <CalendarIcon className="h-4 w-4 mr-1" />
@@ -80,14 +86,16 @@ const Experience = () => {
 
                   {/* Achievements */}
                   <div className="space-y-3">
-                    {exp.achievements.slice(0, expandedExperience === index ? exp.achievements.length : 3).map((achievement, achIndex) => (
-                      <div key={achIndex} className="flex items-start space-x-3">
-                        <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary-600 rounded-full mt-2"></div>
-                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                          {achievement}
-                        </p>
-                      </div>
-                    ))}
+                    {exp.achievements
+                      .slice(0, expandedExperience === index ? exp.achievements.length : 3)
+                      .map((achievement, achIndex) => (
+                        <div key={achIndex} className="flex items-start space-x-3">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary-600 rounded-full mt-2"></div>
+                          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            {achievement}
+                          </p>
+                        </div>
+                      ))}
                   </div>
 
                   {/* Expand/Collapse Button */}
@@ -97,7 +105,9 @@ const Experience = () => {
                       className="flex items-center space-x-2 mt-4 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors duration-200"
                     >
                       <span className="text-sm font-medium">
-                        {expandedExperience === index ? 'Show Less' : `Show ${exp.achievements.length - 3} More`}
+                        {expandedExperience === index
+                          ? 'Show Less'
+                          : `Show ${exp.achievements.length - 3} More`}
                       </span>
                       {expandedExperience === index ? (
                         <ChevronUpIcon className="h-4 w-4" />
@@ -116,10 +126,13 @@ const Experience = () => {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
               Key Professional Projects
             </h3>
-            
+
             <div className="grid gap-6">
               {profileData.professionalProjects.map((project, index) => (
-                <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover">
+                <div
+                  key={index}
+                  className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 card-hover"
+                >
                   <div className="flex items-center justify-between mb-4">
                     <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
                       {project.name}
@@ -136,9 +149,7 @@ const Experience = () => {
                     </button>
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-300 mb-3">
-                    {project.description}
-                  </p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-3">{project.description}</p>
 
                   {expandedProject === project.name && (
                     <div className="space-y-4">
@@ -148,7 +159,9 @@ const Experience = () => {
                       </div>
 
                       <div>
-                        <h5 className="font-medium text-gray-900 dark:text-white mb-2">Tech Stack:</h5>
+                        <h5 className="font-medium text-gray-900 dark:text-white mb-2">
+                          Tech Stack:
+                        </h5>
                         <div className="flex flex-wrap gap-2">
                           {project.techStack.map((tech, techIndex) => (
                             <span key={techIndex} className="skill-badge">
@@ -173,7 +186,7 @@ const Experience = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experience

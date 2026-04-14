@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { profileData } from '../data/profile';
+import React, { useState, useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { profileData } from '../data/profile'
 
 const Skills = () => {
-  const [animatedSkills, setAnimatedSkills] = useState({});
+  const [animatedSkills, setAnimatedSkills] = useState({})
   const { ref, inView } = useInView({
     threshold: 0.3,
-    triggerOnce: true
-  });
+    triggerOnce: true,
+  })
 
   useEffect(() => {
     if (inView) {
@@ -16,28 +16,31 @@ const Skills = () => {
         setTimeout(() => {
           setAnimatedSkills(prev => ({
             ...prev,
-            [skillCategory]: true
-          }));
-        }, index * 200);
-      });
+            [skillCategory]: true,
+          }))
+        }, index * 200)
+      })
     }
-  }, [inView]);
+  }, [inView])
 
-  const getSkillIcon = (category) => {
+  const getSkillIcon = category => {
     const icons = {
-      "Test Automation": "🤖",
-      "API Testing": "🔗",
-      "Performance Testing": "⚡",
-      "CI/CD": "🚀",
-      "Programming": "💻",
-      "Databases": "🗄️",
-      "Cloud & Tools": "☁️"
-    };
-    return icons[category] || "🔧";
-  };
+      'Test Automation': '🤖',
+      'API Testing': '🔗',
+      'Performance Testing': '⚡',
+      'CI/CD': '🚀',
+      Programming: '💻',
+      Databases: '🗄️',
+      'Cloud & Tools': '☁️',
+    }
+    return icons[category] || '🔧'
+  }
 
   return (
-    <section id="skills" className="section-padding bg-white dark:bg-gray-900">
+    <section
+      id="skills"
+      className="section-padding bg-white dark:bg-slate-950 transition-colors duration-300"
+    >
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -51,19 +54,17 @@ const Skills = () => {
 
         <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Object.entries(profileData.skills).map(([category, skillData], index) => (
-            <div 
+            <div
               key={category}
-              className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 card-hover"
+              className="dark-elegant-card p-6 card-hover"
               style={{
-                animationDelay: `${index * 100}ms`
+                animationDelay: `${index * 100}ms`,
               }}
             >
               {/* Category Header */}
               <div className="flex items-center space-x-3 mb-6">
                 <span className="text-2xl">{getSkillIcon(category)}</span>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  {category}
-                </h3>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{category}</h3>
               </div>
 
               {/* Proficiency Bar */}
@@ -75,10 +76,10 @@ const Skills = () => {
                   </span>
                 </div>
                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div 
+                  <div
                     className="bg-gradient-to-r from-primary-600 to-accent-500 h-2 rounded-full transition-all duration-1000 ease-out"
                     style={{
-                      width: animatedSkills[category] ? `${skillData.proficiency}%` : '0%'
+                      width: animatedSkills[category] ? `${skillData.proficiency}%` : '0%',
                     }}
                   ></div>
                 </div>
@@ -91,11 +92,11 @@ const Skills = () => {
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {skillData.technologies.map((tech, techIndex) => (
-                    <span 
+                    <span
                       key={tech}
                       className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors duration-200"
                       style={{
-                        animationDelay: `${(index * 100) + (techIndex * 50)}ms`
+                        animationDelay: `${index * 100 + techIndex * 50}ms`,
                       }}
                     >
                       {tech}
@@ -105,16 +106,18 @@ const Skills = () => {
               </div>
 
               {/* Experience Level Indicator */}
-              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-slate-800/50">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500 dark:text-gray-400">Experience Level</span>
+                  <span className="text-xs text-gray-500 dark:text-slate-500">
+                    Experience Level
+                  </span>
                   <div className="flex items-center space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <div 
+                      <div
                         key={i}
                         className={`w-2 h-2 rounded-full transition-colors duration-300 ${
                           i < Math.ceil(skillData.proficiency / 20)
-                            ? 'bg-primary-500' 
+                            ? 'bg-primary-500'
                             : 'bg-gray-300 dark:bg-gray-600'
                         }`}
                       ></div>
@@ -127,17 +130,17 @@ const Skills = () => {
         </div>
 
         {/* Skills Summary */}
-        <div className="mt-16 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20 rounded-2xl p-8">
+        <div className="mt-16 bg-gradient-elegant dark:border dark:border-slate-800/80 rounded-2xl p-8 shadow-sm">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               Quality Assurance Expertise
             </h3>
             <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              With comprehensive experience across automation frameworks, API testing, performance optimization, 
-              and CI/CD integration, I deliver robust quality assurance solutions that ensure reliable, 
-              high-performance applications.
+              With comprehensive experience across automation frameworks, API testing, performance
+              optimization, and CI/CD integration, I deliver robust quality assurance solutions that
+              ensure reliable, high-performance applications.
             </p>
-            
+
             {/* Key Achievements */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
               <div className="text-center">
@@ -157,7 +160,7 @@ const Skills = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills
