@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon, BeakerIcon } from '@heroicons/react/24/outline'
 import { profileData } from '../data/profile'
 
 const Header = ({ darkMode, toggleDarkMode }) => {
@@ -71,12 +71,12 @@ const Header = ({ darkMode, toggleDarkMode }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-3 lg:space-x-6">
             {navigation.map(item => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-primary-600 dark:hover:text-primary-400 ${
+                className={`relative px-2 lg:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-primary-600 dark:hover:text-primary-400 ${
                   activeSection === item.href.slice(1)
                     ? 'text-primary-600 dark:text-primary-400'
                     : 'text-gray-700 dark:text-gray-300'
@@ -88,6 +88,20 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                 )}
               </button>
             ))}
+          </div>
+
+          {/* Desktop CTA Button */}
+          <div className="hidden md:flex items-center">
+            <a
+              href={profileData.qaPlaygroundUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-flex items-center space-x-1.5 lg:space-x-2 px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:scale-105 group"
+            >
+              <span className="absolute inset-0 rounded-lg ring-2 ring-emerald-400/40 animate-ping group-hover:ring-emerald-300/60" />
+              <BeakerIcon className="h-4 w-4 lg:h-5 lg:w-5 relative z-10" />
+              <span className="relative z-10 whitespace-nowrap">QA Playground</span>
+            </a>
           </div>
 
           {/* Theme Toggle & Mobile Menu Button */}
@@ -135,6 +149,18 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                   {item.name}
                 </button>
               ))}
+              <div className="pt-2 pb-1">
+                <a
+                  href={profileData.qaPlaygroundUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-2 w-full px-3 py-2.5 text-base font-medium rounded-lg text-white bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 shadow-md transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <BeakerIcon className="h-5 w-5" />
+                  <span>Try QA Playground</span>
+                </a>
+              </div>
             </div>
           </div>
         )}

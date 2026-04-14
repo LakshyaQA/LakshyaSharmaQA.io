@@ -3,6 +3,7 @@
 A professional, responsive portfolio website built with **React 19**, **Vite**, and **Tailwind CSS**. Designed to showcase QA automation expertise, projects, and experience to recruiters and hiring managers.
 
 > **Live URL:** https://lakshyasharmaqa.vercel.app/
+> **QA Playground Sandbox:** https://lakshyatesthub.vercel.app/login
 
 ---
 

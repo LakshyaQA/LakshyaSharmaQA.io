@@ -160,7 +160,8 @@ export const profileData = {
       solution:
         'Built a full-featured testing sandbox with a mock network layer, state persistence, negative test flows, and 10+ automation scenarios across login, forms, tables, file upload, and complex UI widgets.',
       techStack: ['React', 'Vite', 'JavaScript', 'Playwright', 'Mock Network', 'CI/CD'],
-      keyMetrics: 'Covers 10+ industry-grade automation scenarios with full data-testid instrumentation.',
+      keyMetrics:
+        'Covers 10+ industry-grade automation scenarios with full data-testid instrumentation.',
       githubUrl: 'https://github.com/LakshyaQA/LakshyaQALab',
       demoUrl: 'https://lakshyatesthub.vercel.app/login',
       image: '/api/placeholder/400/250',

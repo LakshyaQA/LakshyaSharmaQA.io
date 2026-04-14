@@ -1,4 +1,4 @@
-import { useToast } from '../context/ToastContext'
+import { useToast } from './useToast'
 import { SUCCESS_MESSAGES, ERROR_MESSAGES } from '../constants/messages'
 
 export const useResumeDownload = () => {

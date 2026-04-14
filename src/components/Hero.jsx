@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ArrowDownIcon, DocumentArrowDownIcon, EyeIcon, BeakerIcon } from '@heroicons/react/24/outline'
+import { ArrowDownIcon, DocumentArrowDownIcon, EyeIcon } from '@heroicons/react/24/outline'
 import { profileData } from '../data/profile'
 import { useResumeDownload } from '../hooks/useResumeDownload'
 
@@ -126,7 +126,7 @@ const Hero = () => {
             </div>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center flex-wrap">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
               <button
                 onClick={() => handleDownload(profileData.resume.downloadUrl)}
                 className="btn-primary flex items-center space-x-2"
@@ -141,17 +141,6 @@ const Hero = () => {
                 <EyeIcon className="h-5 w-5" />
                 <span>View My Work</span>
               </button>
-              <a
-                href={profileData.qaPlaygroundUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative inline-flex items-center space-x-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105 group"
-                data-testid="hero-qa-playground-cta"
-              >
-                <span className="absolute inset-0 rounded-lg ring-2 ring-emerald-400/40 animate-ping group-hover:ring-emerald-300/60" />
-                <BeakerIcon className="h-5 w-5 relative z-10" />
-                <span className="relative z-10">Try QA Playground →</span>
-              </a>
             </div>
           </div>
 

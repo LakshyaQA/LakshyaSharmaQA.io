@@ -8,7 +8,7 @@ import {
   ClipboardDocumentIcon,
 } from '@heroicons/react/24/outline'
 import { profileData } from '../data/profile'
-import { useToast } from '../context/ToastContext'
+import { useToast } from '../hooks/useToast'
 
 const Contact = () => {
   const { addToast } = useToast()
