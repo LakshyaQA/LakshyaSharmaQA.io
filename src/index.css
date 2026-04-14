@@ -11,8 +11,8 @@
   --color-primary-300: #5eead4;
   --color-primary-400: #2dd4bf;
   --color-primary-500: #14b8a6;
-  --color-primary-600: #0d9488;
-  --color-primary-700: #0f766e;
+  --color-primary-600: #0d7a71; /* Darkened from #0d9488 for 4.5:1 contrast on white */
+  --color-primary-700: #0f6a62;
   --color-primary-800: #115e59;
   --color-primary-900: #134e4a;
 
@@ -127,7 +127,7 @@
   }
 
   .skill-badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200 transition-colors duration-200;
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100/80 text-primary-900 dark:bg-primary-900/40 dark:text-primary-200 transition-colors duration-200;
   }
 }
 

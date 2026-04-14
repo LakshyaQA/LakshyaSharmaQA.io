@@ -78,7 +78,7 @@ const Hero = () => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-primary-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800"
     >
       {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-primary-100/20 to-secondary-100/20 dark:from-primary-900/10 dark:to-secondary-900/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-accent-100/20 to-primary-100/20 dark:from-accent-900/10 dark:to-primary-900/10 rounded-full blur-3xl"></div>
       </div>
@@ -97,7 +97,14 @@ const Hero = () => {
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-gray-200">
                 {profileData.hero.headline}
               </h1>
-              <div className="text-xl sm:text-2xl lg:text-3xl text-primary-600 dark:text-primary-400 font-medium min-h-[2.5rem] flex items-center justify-center lg:justify-start">
+              {/* Visually hidden text for screen readers so they don't have to listen to a typing animation */}
+              <div className="sr-only">
+                Automating Quality for: {typingTexts.join(', ')}
+              </div>
+              <div
+                className="text-xl sm:text-2xl lg:text-3xl text-primary-600 dark:text-primary-400 font-medium min-h-[2.5rem] flex items-center justify-center lg:justify-start"
+                aria-hidden="true"
+              >
                 <span>Automating Quality for </span>
                 <span className="ml-2 font-semibold">
                   {displayText}

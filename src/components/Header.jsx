@@ -61,6 +61,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             <button
               onClick={() => scrollToSection('#hero')}
               className="text-xl font-bold text-gradient hover:scale-105 transition-transform duration-200"
+              aria-label="Lakshya Sharma Portfolio - Home"
             >
               {profileData.name.split(' ').map((word, index) => (
                 <span key={index} className="mr-1">
@@ -71,23 +72,30 @@ const Header = ({ darkMode, toggleDarkMode }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-3 lg:space-x-6">
-            {navigation.map(item => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className={`relative px-2 lg:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-primary-600 dark:hover:text-primary-400 ${
-                  activeSection === item.href.slice(1)
-                    ? 'text-primary-600 dark:text-primary-400'
-                    : 'text-gray-700 dark:text-gray-300'
-                }`}
-              >
-                {item.name}
-                {activeSection === item.href.slice(1) && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-600 dark:bg-primary-400 rounded-full"></span>
-                )}
-              </button>
-            ))}
+          <div className="hidden md:flex items-center">
+            <ul className="flex items-center space-x-3 lg:space-x-6">
+              {navigation.map(item => {
+                const isActive = activeSection === item.href.slice(1)
+                return (
+                  <li key={item.name}>
+                    <button
+                      onClick={() => scrollToSection(item.href)}
+                      aria-current={isActive ? 'page' : undefined}
+                      className={`relative px-2 lg:px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-primary-600 dark:hover:text-primary-400 ${
+                        isActive
+                          ? 'text-primary-600 dark:text-primary-400'
+                          : 'text-gray-700 dark:text-gray-300'
+                      }`}
+                    >
+                      {item.name}
+                      {isActive && (
+                        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-600 dark:bg-primary-400 rounded-full"></span>
+                      )}
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
 
           {/* Desktop CTA Button */}
@@ -135,21 +143,26 @@ const Header = ({ darkMode, toggleDarkMode }) => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map(item => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`block w-full text-left px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200 ${
-                    activeSection === item.href.slice(1)
-                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 border border-primary-100 dark:border-primary-800/30'
-                      : 'text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800'
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
-              <div className="pt-2 pb-1">
+            <ul className="px-2 pt-2 pb-3 space-y-1">
+              {navigation.map(item => {
+                const isActive = activeSection === item.href.slice(1)
+                return (
+                  <li key={item.name}>
+                    <button
+                      onClick={() => scrollToSection(item.href)}
+                      aria-current={isActive ? 'page' : undefined}
+                      className={`block w-full text-left px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200 ${
+                        isActive
+                          ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 border border-primary-100 dark:border-primary-800/30'
+                          : 'text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800'
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  </li>
+                )
+              })}
+              <li className="pt-2 pb-1">
                 <a
                   href={profileData.qaPlaygroundUrl}
                   target="_blank"
@@ -160,8 +173,8 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                   <BeakerIcon className="h-5 w-5" />
                   <span>Try QA Playground</span>
                 </a>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         )}
       </nav>
