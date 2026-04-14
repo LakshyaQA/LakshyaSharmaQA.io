@@ -96,9 +96,9 @@ const Header = ({ darkMode, toggleDarkMode }) => {
               href={profileData.qaPlaygroundUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative inline-flex items-center space-x-1.5 lg:space-x-2 px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:scale-105 group"
+              className="relative overflow-hidden inline-flex items-center space-x-1.5 lg:space-x-2 px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:scale-105 group"
             >
-              <span className="absolute inset-0 rounded-lg ring-2 ring-emerald-400/40 animate-ping group-hover:ring-emerald-300/60" />
+              <span className="absolute inset-0 rounded-lg ring-2 ring-emerald-400/40 animate-ping pointer-events-none group-hover:ring-emerald-300/60" />
               <BeakerIcon className="h-4 w-4 lg:h-5 lg:w-5 relative z-10" />
               <span className="relative z-10 whitespace-nowrap">QA Playground</span>
             </a>
