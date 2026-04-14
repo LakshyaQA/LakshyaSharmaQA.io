@@ -2,7 +2,8 @@
 
 A professional, responsive portfolio website built with **React 19**, **Vite**, and **Tailwind CSS**. Designed to showcase QA automation expertise, projects, and experience to recruiters and hiring managers.
 
-> **Live URL:** https://lakshyasharmaqa.vercel.app/
+> **Live URL:** <https://lakshyasharmaqa.vercel.app/>
+> **QA Playground Sandbox:** <https://lakshyatesthub.vercel.app/login>
 
 ---
 
@@ -32,9 +33,9 @@ A professional, responsive portfolio website built with **React 19**, **Vite**, 
 
 ---
 
-## Project Structure
+### Project Structure
 
-```
+```text
 ├── public/
 │   ├── resume.pdf          # Your downloadable resume (replace this)
 │   ├── sitemap.xml         # SEO sitemap
@@ -77,20 +78,20 @@ A professional, responsive portfolio website built with **React 19**, **Vite**, 
 
 ### Steps
 
-**1. Clone the repository**
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/LakshyaQA/portfolio-qa-automation.git
 cd portfolio-qa-automation
 ```
 
-**2. Install dependencies**
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-**3. Start the development server**
+### 3. Start the development server
 
 ```bash
 npm run dev
@@ -98,13 +99,13 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-**4. Build for production**
+### 4. Build for production
 
 ```bash
 npm run build
 ```
 
-**5. Preview production build locally**
+### 5. Preview production build locally
 
 ```bash
 npm run preview
@@ -116,13 +117,13 @@ npm run preview
 
 All personal content (name, experience, skills, projects, contact info) is centralized in one file:
 
-```
+```bash
 src/data/profile.js
 ```
 
 You do **not** need to touch individual components for content updates. Just edit `profile.js`.
 
-### Key things to update:
+### Key things to update
 
 | What                           | Where                                        |
 | ------------------------------ | -------------------------------------------- |
@@ -141,7 +142,7 @@ You do **not** need to touch individual components for content updates. Just edi
 
 This is a one-time setup. After this, every commit auto-deploys.
 
-**Step 1 — Push your code to GitHub**
+### Step 1 — Push your code to GitHub
 
 ```bash
 git add .
@@ -149,7 +150,7 @@ git commit -m "initial portfolio setup"
 git push origin main
 ```
 
-**Step 2 — Import project on Vercel**
+### Step 2 — Import project on Vercel
 
 1. Go to [vercel.com](https://vercel.com) and sign in (use your GitHub account)
 2. Click **"Add New Project"**
@@ -180,37 +181,37 @@ You can monitor deployment status in your **Vercel Dashboard** under the project
 
 You can also trigger deployments directly from your terminal without going to the dashboard.
 
-**Step 1 — Install Vercel CLI**
+### Step 1 — Install Vercel CLI
 
 ```bash
 npm install -g vercel
 ```
 
-**Step 2 — Login to Vercel**
+### Step 2 — Login to Vercel
 
 ```bash
 vercel login
 ```
 
-**Step 3 — Deploy to preview (UAT / staging)**
+### Step 3 — Deploy to preview (UAT / staging)
 
 ```bash
 vercel
 ```
 
-**Step 4 — Deploy to production**
+### Step 4 — Deploy to production
 
 ```bash
 vercel --prod
 ```
 
-**Check deployment status & list all deployments**
+### Check deployment status & list all deployments
 
 ```bash
 vercel ls
 ```
 
-**Inspect a specific deployment**
+### Inspect a specific deployment
 
 ```bash
 vercel inspect <deployment-url>
@@ -262,9 +263,9 @@ Or install the **Tailwind CSS IntelliSense** extension from VS Code marketplace.
 
 ## Contact
 
-- **Email:** lakshyasharmaqa@gmail.com
+- **Email:** <mailto:lakshyasharmaqa@gmail.com>
 - **LinkedIn:** [linkedin.com/in/lakshyasharmaqa](https://linkedin.com/in/lakshyasharmaqa)
-- **GitHub:** [github.com/LakshyaQA](https://github.com/LakshyaQA)
+- **GitHub:** <https://github.com/LakshyaQA>
 
 ---
 

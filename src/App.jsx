@@ -8,7 +8,7 @@ import Projects from './components/Projects'
 import Resume from './components/Resume'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import { ToastProvider } from './context/ToastContext'
+import { ToastProvider } from './context/ToastProvider'
 import Toast from './components/Toast'
 
 function App() {

@@ -1,7 +1,7 @@
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion' // eslint-disable-line no-unused-vars
 import { CheckCircleIcon, ExclamationCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useToast } from '../context/ToastContext'
+import { useToast } from '../hooks/useToast'
 
 const Toast = () => {
   const { toasts, removeToast } = useToast()
