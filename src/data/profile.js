@@ -144,10 +144,30 @@ export const profileData = {
     },
   ],
 
+  // QA Playground URL
+  qaPlaygroundUrl: 'https://lakshyatesthub.vercel.app/login',
+
   // Personal Projects (Non-Professional)
   projects: [
     {
       id: 1,
+      name: 'QA Playground',
+      category: 'E2E',
+      description:
+        'An interactive sandbox for practicing real-world QA automation — featuring secure login flows, dashboards, data tables, file uploads, modals, sliders, and product gallery filtering with full data-testid coverage.',
+      problem:
+        'QA engineers lack a realistic, safe environment to practice and demonstrate advanced automation scenarios.',
+      solution:
+        'Built a full-featured testing sandbox with a mock network layer, state persistence, negative test flows, and 10+ automation scenarios across login, forms, tables, file upload, and complex UI widgets.',
+      techStack: ['React', 'Vite', 'JavaScript', 'Playwright', 'Mock Network', 'CI/CD'],
+      keyMetrics: 'Covers 10+ industry-grade automation scenarios with full data-testid instrumentation.',
+      githubUrl: 'https://github.com/LakshyaQA/LakshyaQALab',
+      demoUrl: 'https://lakshyatesthub.vercel.app/login',
+      image: '/api/placeholder/400/250',
+      featured: true,
+    },
+    {
+      id: 2,
       name: 'CarDekho Functional Automation',
       category: 'E2E',
       description:
@@ -164,7 +184,7 @@ export const profileData = {
       featured: true,
     },
     {
-      id: 2,
+      id: 3,
       name: 'I2V QA Testing Suite (IQTS)',
       category: 'API',
       description:
