@@ -26,13 +26,12 @@ dist-ssr
 # Environment files
 *.env
 *.env.*
--e 
-# Environment files
-*.env
-*.env.*
 .vercel
 .env*.local
 
 # Playwright
 test-results/
 playwright-report/
+
+# Vite Cache
+.vite/
