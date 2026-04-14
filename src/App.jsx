@@ -43,7 +43,7 @@ function App() {
     <ToastProvider>
       <div className="min-h-screen bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 transition-colors duration-300">
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        <main>
+        <main id="main-content">
           <Hero />
           <About />
           <Skills />

@@ -75,7 +75,7 @@ const Skills = () => {
                     {skillData.proficiency}%
                   </span>
                 </div>
-                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2" role="progressbar" aria-valuenow={skillData.proficiency} aria-valuemin="0" aria-valuemax="100">
                   <div
                     className="bg-gradient-to-r from-primary-600 to-accent-500 h-2 rounded-full transition-all duration-1000 ease-out"
                     style={{
@@ -111,7 +111,7 @@ const Skills = () => {
                   <span className="text-xs text-gray-500 dark:text-slate-500">
                     Experience Level
                   </span>
-                  <div className="flex items-center space-x-1">
+                  <div className="flex items-center space-x-1" aria-label={`${Math.ceil(skillData.proficiency / 20)} out of 5 stars`}>
                     {[...Array(5)].map((_, i) => (
                       <div
                         key={i}
@@ -120,8 +120,10 @@ const Skills = () => {
                             ? 'bg-primary-500'
                             : 'bg-gray-300 dark:bg-gray-600'
                         }`}
+                        aria-hidden="true"
                       ></div>
                     ))}
+                    <span className="sr-only">{Math.ceil(skillData.proficiency / 20)} out of 5</span>
                   </div>
                 </div>
               </div>

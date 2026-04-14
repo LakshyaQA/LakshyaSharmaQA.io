@@ -141,13 +141,14 @@ const Contact = () => {
                           ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400'
                           : 'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400'
                       }`}
-                      title="Copy email"
+                      title="Copy email to clipboard"
+                      aria-label={emailCopied ? "Email copied" : "Copy email address to clipboard"}
                     >
                       {emailCopied ? (
-                        <>
+                        <div className="flex items-center space-x-1" aria-live="polite">
                           <CheckIcon className="h-3.5 w-3.5" />
                           <span>Copied!</span>
-                        </>
+                        </div>
                       ) : (
                         <>
                           <ClipboardDocumentIcon className="h-3.5 w-3.5" />
@@ -171,9 +172,10 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center space-x-1.5 text-sm text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors duration-200"
+                    aria-label={`Chat with me on WhatsApp at ${profileData.phone}`}
                   >
                     <span>{profileData.phone}</span>
-                    <span className="text-xs bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded font-medium">WhatsApp</span>
+                    <span className="text-xs bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded font-medium" aria-hidden="true">WhatsApp</span>
                   </a>
                 </div>
               </div>
@@ -232,11 +234,12 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
+                      aria-required="true"
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       placeholder="Your full name"
                     />
                   </div>
-
+ 
                   <div>
                     <label
                       htmlFor="email"
@@ -251,6 +254,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
+                      aria-required="true"
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       placeholder="your.email@example.com"
                     />
@@ -271,6 +275,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
+                    aria-required="true"
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     placeholder="What's this about?"
                   />
@@ -289,6 +294,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
+                    aria-required="true"
                     rows={5}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-vertical"
                     placeholder="Tell me about the opportunity or ask your question..."
