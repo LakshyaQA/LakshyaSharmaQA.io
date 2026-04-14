@@ -4,7 +4,7 @@ import { SUCCESS_MESSAGES, ERROR_MESSAGES } from '../constants/messages'
 export const useResumeDownload = () => {
   const { addToast } = useToast()
 
-  const handleDownload = async (url, filename = 'Lakshya_Sharma_QA_Resume.pdf') => {
+  const handleDownload = async (url, filename = 'LakshyaSharmaQAAutomationEngineerResume.pdf') => {
     try {
       // 1. Verify file existence and content type before initiating download
       const response = await fetch(url, { method: 'HEAD' })
