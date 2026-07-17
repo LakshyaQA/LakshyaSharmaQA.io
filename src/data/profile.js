@@ -19,7 +19,7 @@ export const profileData = {
     headline: 'QA Automation Engineer',
     subheadline: 'Playwright · Appium · Python/TypeScript · Azure DevOps · Selenium · BrowserStack',
     description:
-      'QA Automation Engineer with 2.5+ years of expertise in architecting scalable automation frameworks, API & mobile testing, and high-performance Web testing using Playwright and Selenium.',
+      'QA Automation Engineer with 2.8+ years of expertise in architecting scalable automation frameworks, API & mobile testing, and high-performance Web testing using Playwright and Selenium.',
     typingText: [
       'Web Automation',
       'Mobile Automation',
@@ -33,7 +33,7 @@ export const profileData = {
   // About Section
   about: {
     summary:
-      "I'm a QA Automation Engineer based in Jaipur with 2.5+ years of experience in the software testing lifecycle (STLC). I specialize in building TDD-based automation frameworks using Playwright and Appium, integrating robust CI/CD pipelines, and leveraging Agentic AI for optimized test planning and maintenance. I have a proven track record of accelerating regression execution by 40% and ensuring 95%+ release stability across Web, Mobile, and API applications.",
+      "I'm a QA Automation Engineer based in Jaipur with 2.8+ years of experience in the software testing lifecycle (STLC). I specialize in building TDD-based automation frameworks using Playwright and Appium, integrating robust CI/CD pipelines, and leveraging Agentic AI for optimized test planning and maintenance. I have a proven track record of accelerating regression execution by 40% and ensuring 95%+ release stability across Web, Mobile, and API applications.",
     personalIntro:
       'Passionate about building robust QA processes, I leverage automation, performance testing, and prompt engineering to reduce bugs early, enhance efficiency, and deliver reliable, high-performance software.',
   },
@@ -258,7 +258,7 @@ export const profileData = {
   resume: {
     downloadUrl: '/LakshyaSharmaQAAutomationEngineerResume.pdf',
     highlights: [
-      '2.5+ Years Experience',
+      '2.8+ Years Experience',
       'Appium & Playwright Expert',
       'Web testing using Playwright and Selenium',
       '95%+ Release Stability',
@@ -271,7 +271,7 @@ export const profileData = {
   seo: {
     title: 'Lakshya Sharma | QA Automation Engineer Portfolio',
     description:
-      'QA Automation Engineer with 2.5+ years experience in Playwright, Appium, Selenium, and Azure DevOps. Specializing in Web, Mobile, and API testing with a focus on Jaipur/Pune locations.',
+      'QA Automation Engineer with 2.8+ years experience in Playwright, Appium, Selenium, and Azure DevOps. Specializing in Web, Mobile, and API testing with a focus on Jaipur/Pune locations.',
     keywords:
       'QA Automation Engineer, Playwright, Appium, Selenium, Azure DevOps, BrowserStack, Web testing, Agentic AI, Jaipur QA, Lakshya Sharma',
     ogImage: '/og-image.jpg',
